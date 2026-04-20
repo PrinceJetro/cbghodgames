@@ -26,6 +26,9 @@ SECRET_KEY = 'django-insecure-bxexo1fa^$n4%a+hg60gm7jau7guhr%dwp@y51bx#i!z(26(sa
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://cbghodgames.onrender.com",
+]
 
 
 # Application definition
