@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block extra_head %}
+<style>
+  .auth-wrap {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  .auth-box {
+    width: 100%;
+    max-width: 480px;
+  }
+  .auth-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .auth-header .label { margin-bottom: 10px; }
+  .auth-header h1 { font-size: 3rem; margin-bottom: 8px; }
+  .auth-header p { color: var(--muted); font-size: 0.9rem; }
+  .auth-footer-link {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .auth-footer-link a { color: var(--gold); text-decoration: none; font-weight: 600; }
+  .auth-footer-link a:hover { text-decoration: underline; }
+  .section-divider {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+    margin: 24px 0 20px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrap fade-up">
+  <div class="auth-box">
+    <div class="auth-header">
+      <div class="label">Join the Battle</div>
+      <h1>REGISTER</h1>
+      <p>Create your account to compete in the qualifiers and Brain Battle Finals.</p>
+    </div>
+
+    <div class="card card-glow">
+      <form method="post" novalidate>
+        {% csrf_token %}
+
+        <div class="section-divider">Account Info</div>
+
+        <div class="form-group">
+          <label for="{{ user_form.username.id_for_label }}">Username</label>
+          {{ user_form.username }}
+          {% if user_form.username.errors %}
+            <ul class="errorlist">{% for e in user_form.username.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+          {% endif %}
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="{{ user_form.password1.id_for_label }}">Password</label>
+            {{ user_form.password1 }}
+            {% if user_form.password1.errors %}
+              <ul class="errorlist">{% for e in user_form.password1.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ user_form.password2.id_for_label }}">Confirm Password</label>
+            {{ user_form.password2 }}
+            {% if user_form.password2.errors %}
+              <ul class="errorlist">{% for e in user_form.password2.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="section-divider">Your Details</div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="{{ participant_form.level.id_for_label }}">Level</label>
+            {{ participant_form.level }}
+            {% if participant_form.level.errors %}
+              <ul class="errorlist">{% for e in participant_form.level.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+            {% endif %}
+          </div>
+          <div class="form-group">
+            <label for="{{ participant_form.phone.id_for_label }}">Phone (optional)</label>
+            {{ participant_form.phone }}
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:8px;">
+          Register & Enter →
+        </button>
+      </form>
+    </div>
+
+    <div class="auth-footer-link">
+      Already have an account? <a href="{% url 'login' %}">Login here</a>
+    </div>
+    <div class="auth-footer-link" style="margin-top:10px;">
+      Just want to try the Daily Quiz? <a href="{% url 'daily_quiz' %}">No account needed →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

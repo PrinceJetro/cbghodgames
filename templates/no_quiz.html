@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}No Quiz Available{% endblock %}
+
+{% block content %}
+<div style="min-height:60vh;display:flex;align-items:center;justify-content:center;">
+  <div style="text-align:center;max-width:480px;" class="fade-up">
+    <div style="font-size:4rem;margin-bottom:20px;">⏳</div>
+    <div class="label" style="margin-bottom:12px;">Not Available</div>
+    <h1 style="font-size:2.4rem;margin-bottom:12px;">NO QUIZ LIVE</h1>
+    <p style="color:var(--muted);margin-bottom:32px;">
+      {{ message|default:"There's no active quiz right now. Check back soon!" }}
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="{% url 'home' %}" class="btn btn-primary">← Back to Home</a>
+      <a href="{% url 'leaderboard' %}" class="btn btn-outline">View Leaderboard</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

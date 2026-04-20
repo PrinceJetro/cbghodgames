@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block extra_head %}
+<style>
+  .auth-wrap {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+  }
+  .auth-box { width: 100%; max-width: 440px; }
+  .auth-header { text-align: center; margin-bottom: 36px; }
+  .auth-header h1 { font-size: 3rem; margin-bottom: 8px; }
+  .auth-header p { color: var(--muted); font-size: 0.9rem; }
+  .auth-footer-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+  .auth-footer-link a { color: var(--gold); text-decoration: none; font-weight: 600; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="auth-wrap fade-up">
+  <div class="auth-box">
+    <div class="auth-header">
+      <div class="label" style="margin-bottom:10px;">Welcome Back</div>
+      <h1>LOGIN</h1>
+      <p>Sign in to access your qualifier and track your progress.</p>
+    </div>
+
+    <div class="card card-glow">
+      <form method="post" novalidate>
+        {% csrf_token %}
+        {% if form.non_field_errors %}
+          <div class="alert alert-error">{{ form.non_field_errors }}</div>
+        {% endif %}
+
+        <div class="form-group">
+          <label for="{{ form.username.id_for_label }}">Username</label>
+          {{ form.username }}
+          {% if form.username.errors %}
+            <ul class="errorlist">{% for e in form.username.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+          {% endif %}
+        </div>
+
+        <div class="form-group">
+          <label for="{{ form.password.id_for_label }}">Password</label>
+          {{ form.password }}
+          {% if form.password.errors %}
+            <ul class="errorlist">{% for e in form.password.errors %}<li>{{ e }}</li>{% endfor %}</ul>
+          {% endif %}
+        </div>
+
+        {% if next %}
+          <input type="hidden" name="next" value="{{ next }}">
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:8px;">
+          Login →
+        </button>
+      </form>
+    </div>
+
+    <div class="auth-footer-link">
+      No account? <a href="{% url 'register' %}">Register to compete</a>
+    </div>
+    <div class="auth-footer-link" style="margin-top:10px;">
+      Just want Daily Quiz? <a href="{% url 'daily_quiz' %}">No account needed →</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

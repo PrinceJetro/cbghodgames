@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %}Already Attempted{% endblock %}
+
+{% block content %}
+<div style="min-height:60vh;display:flex;align-items:center;justify-content:center;">
+  <div style="text-align:center;max-width:480px;" class="fade-up">
+    <div style="font-size:4rem;margin-bottom:20px;">✅</div>
+    <div class="label" style="margin-bottom:12px;">Already Done</div>
+    <h1 style="font-size:2.4rem;margin-bottom:12px;">YOU'VE PLAYED THIS ONE</h1>
+    <p style="color:var(--muted);margin-bottom:8px;">
+      You've already completed
+      {% if quiz %}<strong>{{ quiz.title }}</strong>{% else %}this quiz{% endif %}.
+    </p>
+    <p style="color:var(--muted);margin-bottom:32px;">
+      Each quiz can only be attempted once — this keeps the competition fair.
+    </p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      {% if attempt %}
+        <a href="{% url 'quiz_result' attempt.id %}" class="btn btn-primary">View My Result →</a>
+      {% endif %}
+      <a href="{% url 'leaderboard' %}" class="btn btn-outline">🏆 Leaderboard</a>
+      <a href="{% url 'home' %}" class="btn btn-outline">← Home</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,950 @@
+{
+  "quizzes": [
+    {
+      "title": "Biology Basics Qualifier",
+      "quiz_type": "qualifier",
+      "round_type": "general",
+      "level": "Beginner",
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 30,
+      "total_questions": 10,
+      "points_correct": 10,
+      "points_wrong": 0,
+      "speed_bonus_enabled": false,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "What is the basic structural and functional unit of all living organisms?",
+          "option_a": "The organ",
+          "option_b": "The tissue",
+          "option_c": "The cell",
+          "option_d": "The molecule",
+          "correct_option": "C",
+          "explanation": "The cell is the fundamental unit of life. All living things are composed of one or more cells, and cells carry out all life processes.",
+          "order": 1
+        },
+        {
+          "text": "Which organelle is known as the 'powerhouse of the cell'?",
+          "option_a": "Nucleus",
+          "option_b": "Mitochondria",
+          "option_c": "Ribosome",
+          "option_d": "Golgi apparatus",
+          "correct_option": "B",
+          "explanation": "Mitochondria generate most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy.",
+          "order": 2
+        },
+        {
+          "text": "What is the process by which plants make their own food?",
+          "option_a": "Respiration",
+          "option_b": "Fermentation",
+          "option_c": "Photosynthesis",
+          "option_d": "Digestion",
+          "correct_option": "C",
+          "explanation": "Photosynthesis is the process where plants use sunlight, water, and carbon dioxide to create oxygen and energy in the form of sugar.",
+          "order": 3
+        },
+        {
+          "text": "Which of the following is NOT a primary tissue type in animals?",
+          "option_a": "Epithelial tissue",
+          "option_b": "Connective tissue",
+          "option_c": "Muscle tissue",
+          "option_d": "Vascular tissue",
+          "correct_option": "D",
+          "explanation": "Vascular tissue is found in plants, not animals. The four primary animal tissues are epithelial, connective, muscle, and nervous tissue.",
+          "order": 4
+        },
+        {
+          "text": "What pigment gives plants their green color?",
+          "option_a": "Carotene",
+          "option_b": "Xanthophyll",
+          "option_c": "Chlorophyll",
+          "option_d": "Anthocyanin",
+          "correct_option": "C",
+          "explanation": "Chlorophyll is the green pigment that absorbs light energy for photosynthesis and gives plants their characteristic green color.",
+          "order": 5
+        },
+        {
+          "text": "Which part of the human brain is responsible for balance and coordination?",
+          "option_a": "Cerebrum",
+          "option_b": "Cerebellum",
+          "option_c": "Medulla oblongata",
+          "option_d": "Hypothalamus",
+          "correct_option": "B",
+          "explanation": "The cerebellum coordinates voluntary movements such as posture, balance, coordination, and speech, resulting in smooth and balanced muscular activity.",
+          "order": 6
+        },
+        {
+          "text": "What is the function of red blood cells?",
+          "option_a": "Fight infection",
+          "option_b": "Carry oxygen",
+          "option_c": "Clot blood",
+          "option_d": "Produce antibodies",
+          "correct_option": "B",
+          "explanation": "Red blood cells contain hemoglobin, which binds to oxygen in the lungs and transports it to tissues throughout the body.",
+          "order": 7
+        },
+        {
+          "text": "Which scientist is credited with developing the theory of evolution by natural selection?",
+          "option_a": "Gregor Mendel",
+          "option_b": "Louis Pasteur",
+          "option_c": "Charles Darwin",
+          "option_d": "James Watson",
+          "correct_option": "C",
+          "explanation": "Charles Darwin proposed the theory of evolution by natural selection in his 1859 book 'On the Origin of Species'.",
+          "order": 8
+        },
+        {
+          "text": "What is the main function of the digestive system?",
+          "option_a": "Transport oxygen",
+          "option_b": "Break down food for nutrients",
+          "option_c": "Regulate body temperature",
+          "option_d": "Produce hormones",
+          "correct_option": "B",
+          "explanation": "The digestive system breaks down food into nutrients that can be absorbed into the bloodstream and used by the body for energy, growth, and repair.",
+          "order": 9
+        },
+        {
+          "text": "Which of these is a prokaryotic organism?",
+          "option_a": "Human",
+          "option_b": "Mushroom",
+          "option_c": "Bacterium",
+          "option_d": "Fern",
+          "correct_option": "C",
+          "explanation": "Bacteria are prokaryotes, meaning they lack a membrane-bound nucleus and other organelles. Humans, mushrooms, and ferns are eukaryotes.",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Cell Biology Qualifier",
+      "quiz_type": "qualifier",
+      "round_type": "department",
+      "level": "Intermediate",
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 30,
+      "total_questions": 10,
+      "points_correct": 10,
+      "points_wrong": 0,
+      "speed_bonus_enabled": false,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "Which organelle is responsible for protein synthesis?",
+          "option_a": "Nucleus",
+          "option_b": "Ribosome",
+          "option_c": "Lysosome",
+          "option_d": "Peroxisome",
+          "correct_option": "B",
+          "explanation": "Ribosomes are the site of protein synthesis, translating mRNA into polypeptide chains.",
+          "order": 1
+        },
+        {
+          "text": "What structure surrounds and protects the plant cell?",
+          "option_a": "Cell membrane",
+          "option_b": "Cell wall",
+          "option_c": "Cytoplasm",
+          "option_d": "Vacuole",
+          "correct_option": "B",
+          "explanation": "The cell wall is a rigid layer outside the cell membrane that provides structural support and protection to plant cells.",
+          "order": 2
+        },
+        {
+          "text": "Which organelle contains the cell's genetic material?",
+          "option_a": "Mitochondria",
+          "option_b": "Ribosome",
+          "option_c": "Nucleus",
+          "option_d": "Endoplasmic reticulum",
+          "correct_option": "C",
+          "explanation": "The nucleus contains DNA, which carries the genetic instructions for all cellular functions.",
+          "order": 3
+        },
+        {
+          "text": "What is the function of the Golgi apparatus?",
+          "option_a": "Energy production",
+          "option_b": "Protein modification and packaging",
+          "option_c": "Lipid synthesis",
+          "option_d": "Waste breakdown",
+          "correct_option": "B",
+          "explanation": "The Golgi apparatus modifies, sorts, and packages proteins for transport to their destinations.",
+          "order": 4
+        },
+        {
+          "text": "Which organelle is responsible for cellular digestion?",
+          "option_a": "Lysosome",
+          "option_b": "Vacuole",
+          "option_c": "Chloroplast",
+          "option_d": "Nucleolus",
+          "correct_option": "A",
+          "explanation": "Lysosomes contain digestive enzymes that break down waste materials and cellular debris.",
+          "order": 5
+        },
+        {
+          "text": "What is the fluid inside the cell called?",
+          "option_a": "Nucleoplasm",
+          "option_b": "Cytosol",
+          "option_c": "Matrix",
+          "option_d": "Stroma",
+          "correct_option": "B",
+          "explanation": "Cytosol is the liquid found inside cells, excluding the organelles, where many metabolic reactions occur.",
+          "order": 6
+        },
+        {
+          "text": "Which of these is found ONLY in plant cells?",
+          "option_a": "Mitochondria",
+          "option_b": "Ribosomes",
+          "option_c": "Chloroplasts",
+          "option_d": "Nucleus",
+          "correct_option": "C",
+          "explanation": "Chloroplasts are only found in plant cells and some protists, where they conduct photosynthesis.",
+          "order": 7
+        },
+        {
+          "text": "What is the function of the smooth endoplasmic reticulum?",
+          "option_a": "Protein synthesis",
+          "option_b": "Lipid and steroid synthesis",
+          "option_c": "DNA replication",
+          "option_d": "Cell division",
+          "correct_option": "B",
+          "explanation": "Smooth ER synthesizes lipids, steroids, and carbohydrates, and also detoxifies harmful substances.",
+          "order": 8
+        },
+        {
+          "text": "Which structure controls what enters and exits the cell?",
+          "option_a": "Cell wall",
+          "option_b": "Cell membrane",
+          "option_c": "Nuclear envelope",
+          "option_d": "Cytoskeleton",
+          "correct_option": "B",
+          "explanation": "The cell membrane is selectively permeable, regulating the passage of substances in and out of the cell.",
+          "order": 9
+        },
+        {
+          "text": "What are the thread-like structures that condense to form chromosomes?",
+          "option_a": "Chromatin",
+          "option_b": "Centrioles",
+          "option_c": "Nucleoli",
+          "option_d": "Plasmids",
+          "correct_option": "A",
+          "explanation": "Chromatin is the complex of DNA and proteins that condenses to form chromosomes during cell division.",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Morning Routine Biology",
+      "quiz_type": "daily",
+      "round_type": "standard",
+      "level": null,
+      "date": "2024-03-15",
+      "day_label": "Wake Up Wednesday",
+      "is_active": true,
+      "time_limit": 30,
+      "total_questions": 10,
+      "points_correct": 10,
+      "points_wrong": 0,
+      "speed_bonus_enabled": false,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "What hormone helps wake you up in the morning by increasing alertness?",
+          "option_a": "Melatonin",
+          "option_b": "Cortisol",
+          "option_c": "Insulin",
+          "option_d": "Serotonin",
+          "correct_option": "B",
+          "explanation": "Cortisol levels naturally peak in the early morning, helping you wake up and feel alert.",
+          "order": 1
+        },
+        {
+          "text": "What percentage of the human body is water?",
+          "option_a": "About 40%",
+          "option_b": "About 50-65%",
+          "option_c": "About 70-80%",
+          "option_d": "About 90%",
+          "correct_option": "B",
+          "explanation": "The average adult human body is about 50-65% water, varying by age, sex, and body composition.",
+          "order": 2
+        },
+        {
+          "text": "Why do you feel hungry in the morning?",
+          "option_a": "Your stomach shrinks overnight",
+          "option_b": "Low blood sugar after fasting",
+          "option_c": "Increased stomach acid",
+          "option_d": "Dehydration",
+          "correct_option": "B",
+          "explanation": "After 8-12 hours without food (overnight fasting), your blood glucose levels drop, triggering hunger signals.",
+          "order": 3
+        },
+        {
+          "text": "What vitamin does sunlight help your body produce?",
+          "option_a": "Vitamin A",
+          "option_b": "Vitamin C",
+          "option_c": "Vitamin D",
+          "option_d": "Vitamin E",
+          "correct_option": "C",
+          "explanation": "When skin is exposed to sunlight, it produces Vitamin D, essential for calcium absorption and bone health.",
+          "order": 4
+        },
+        {
+          "text": "Which part of your brain controls your circadian rhythm?",
+          "option_a": "Cerebellum",
+          "option_b": "Hypothalamus",
+          "option_c": "Amygdala",
+          "option_d": "Hippocampus",
+          "correct_option": "B",
+          "explanation": "The suprachiasmatic nucleus (SCN) in the hypothalamus regulates your body's internal clock.",
+          "order": 5
+        },
+        {
+          "text": "What causes 'morning breath'?",
+          "option_a": "Decreased saliva production",
+          "option_b": "Tooth decay",
+          "option_c": "Gum disease",
+          "option_d": "Allergies",
+          "correct_option": "A",
+          "explanation": "Saliva production decreases during sleep, allowing bacteria to multiply and produce unpleasant odors.",
+          "order": 6
+        },
+        {
+          "text": "Which breakfast food is a complete protein?",
+          "option_a": "Toast",
+          "option_b": "Eggs",
+          "option_c": "Oatmeal",
+          "option_d": "Banana",
+          "correct_option": "B",
+          "explanation": "Eggs contain all nine essential amino acids, making them a complete protein source.",
+          "order": 7
+        },
+        {
+          "text": "What happens to your blood pressure when you wake up?",
+          "option_a": "It decreases",
+          "option_b": "It stays the same",
+          "option_c": "It increases",
+          "option_d": "It fluctuates randomly",
+          "correct_option": "C",
+          "explanation": "Blood pressure naturally rises in the morning due to hormonal changes and increased activity of the sympathetic nervous system.",
+          "order": 8
+        },
+        {
+          "text": "How long is the average human circadian rhythm?",
+          "option_a": "12 hours",
+          "option_b": "24 hours",
+          "option_c": "36 hours",
+          "option_d": "48 hours",
+          "correct_option": "B",
+          "explanation": "The circadian rhythm is roughly 24 hours, regulating sleep-wake cycles, hormone release, and other bodily functions.",
+          "order": 9
+        },
+        {
+          "text": "What is the main benefit of eating breakfast?",
+          "option_a": "Weight loss only",
+          "option_b": "Replenishing glycogen stores",
+          "option_c": "Cleaning teeth",
+          "option_d": "Increasing sleep quality",
+          "correct_option": "B",
+          "explanation": "Breakfast replenishes glycogen stores depleted overnight, providing energy for brain and muscle function.",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Evening Biology Trivia",
+      "quiz_type": "daily",
+      "round_type": "standard",
+      "level": null,
+      "date": "2024-03-16",
+      "day_label": "Thinker Thursday",
+      "is_active": true,
+      "time_limit": 30,
+      "total_questions": 10,
+      "points_correct": 10,
+      "points_wrong": 0,
+      "speed_bonus_enabled": false,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "What hormone is released at night to help you sleep?",
+          "option_a": "Cortisol",
+          "option_b": "Melatonin",
+          "option_c": "Adrenaline",
+          "option_d": "Dopamine",
+          "correct_option": "B",
+          "explanation": "Melatonin is produced by the pineal gland in response to darkness, promoting sleep.",
+          "order": 1
+        },
+        {
+          "text": "How many hours of sleep does the average adult need?",
+          "option_a": "4-5 hours",
+          "option_b": "7-9 hours",
+          "option_c": "10-12 hours",
+          "option_d": "It varies greatly",
+          "correct_option": "B",
+          "explanation": "Most adults need 7-9 hours of sleep for optimal health and cognitive function.",
+          "order": 2
+        },
+        {
+          "text": "What happens to your body temperature during sleep?",
+          "option_a": "It increases",
+          "option_b": "It decreases",
+          "option_c": "It stays the same",
+          "option_d": "It fluctuates wildly",
+          "correct_option": "B",
+          "explanation": "Core body temperature drops by 1-2 degrees Fahrenheit during sleep, helping initiate and maintain sleep.",
+          "order": 3
+        },
+        {
+          "text": "Which brain wave is associated with deep sleep?",
+          "option_a": "Alpha waves",
+          "option_b": "Beta waves",
+          "option_c": "Delta waves",
+          "option_d": "Gamma waves",
+          "correct_option": "C",
+          "explanation": "Delta waves are slow, high-amplitude brain waves characteristic of deep, restorative sleep.",
+          "order": 4
+        },
+        {
+          "text": "What is REM sleep known for?",
+          "option_a": "Physical restoration",
+          "option_b": "Dreaming",
+          "option_c": "Growth hormone release",
+          "option_d": "Body repair",
+          "correct_option": "B",
+          "explanation": "REM (Rapid Eye Movement) sleep is when most vivid dreaming occurs, and is important for memory consolidation.",
+          "order": 5
+        },
+        {
+          "text": "What nutrient in turkey is associated with sleepiness?",
+          "option_a": "Vitamin B12",
+          "option_b": "Iron",
+          "option_c": "Tryptophan",
+          "option_d": "Calcium",
+          "correct_option": "C",
+          "explanation": "Tryptophan is an amino acid used to produce serotonin and melatonin, which regulate sleep.",
+          "order": 6
+        },
+        {
+          "text": "What is 'sleep inertia'?",
+          "option_a": "Inability to fall asleep",
+          "option_b": "Grogginess after waking",
+          "option_c": "Sleepwalking",
+          "option_d": "Night terrors",
+          "correct_option": "B",
+          "explanation": "Sleep inertia is the temporary disorientation and reduced performance immediately after waking.",
+          "order": 7
+        },
+        {
+          "text": "How does exercise affect sleep quality?",
+          "option_a": "Worsens sleep",
+          "option_b": "No effect",
+          "option_c": "Improves sleep",
+          "option_d": "Only morning exercise helps",
+          "correct_option": "C",
+          "explanation": "Regular exercise improves sleep quality, helping you fall asleep faster and enjoy deeper sleep.",
+          "order": 8
+        },
+        {
+          "text": "What is the main function of the glymphatic system during sleep?",
+          "option_a": "Digesting food",
+          "option_b": "Cleaning brain waste",
+          "option_c": "Producing blood cells",
+          "option_d": "Regulating temperature",
+          "correct_option": "B",
+          "explanation": "The glymphatic system becomes active during sleep, clearing waste products from the brain.",
+          "order": 9
+        },
+        {
+          "text": "Which age group needs the most sleep?",
+          "option_a": "Elderly (65+)",
+          "option_b": "Adults (18-64)",
+          "option_c": "Teenagers (14-17)",
+          "option_d": "Infants (4-12 months)",
+          "correct_option": "D",
+          "explanation": "Infants need 12-16 hours of sleep per day for proper growth and brain development.",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Grand Finals Championship",
+      "quiz_type": "final",
+      "round_type": "general",
+      "level": null,
+      "date": "2024-03-20",
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 45,
+      "total_questions": 10,
+      "points_correct": 20,
+      "points_wrong": -5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 10,
+      "questions": [
+        {
+          "text": "What is the most abundant gas in Earth's atmosphere?",
+          "option_a": "Oxygen",
+          "option_b": "Carbon dioxide",
+          "option_c": "Nitrogen",
+          "option_d": "Argon",
+          "correct_option": "C",
+          "explanation": "Nitrogen makes up about 78% of Earth's atmosphere, while oxygen is about 21%.",
+          "order": 1
+        },
+        {
+          "text": "Which organ is responsible for filtering blood and producing urine?",
+          "option_a": "Liver",
+          "option_b": "Kidneys",
+          "option_c": "Bladder",
+          "option_d": "Pancreas",
+          "correct_option": "B",
+          "explanation": "The kidneys filter waste products from the blood and produce urine for excretion.",
+          "order": 2
+        },
+        {
+          "text": "What is the term for organisms that can produce their own food?",
+          "option_a": "Heterotrophs",
+          "option_b": "Autotrophs",
+          "option_c": "Consumers",
+          "option_d": "Decomposers",
+          "correct_option": "B",
+          "explanation": "Autotrophs, such as plants and some bacteria, produce their own food through photosynthesis or chemosynthesis.",
+          "order": 3
+        },
+        {
+          "text": "Which of these is NOT a function of the liver?",
+          "option_a": "Producing bile",
+          "option_b": "Detoxifying chemicals",
+          "option_c": "Storing vitamins",
+          "option_d": "Pumping blood",
+          "correct_option": "D",
+          "explanation": "The liver performs many functions but does not pump blood - that's the heart's job.",
+          "order": 4
+        },
+        {
+          "text": "What is the basic unit of heredity?",
+          "option_a": "Chromosome",
+          "option_b": "DNA",
+          "option_c": "Gene",
+          "option_d": "Nucleotide",
+          "correct_option": "C",
+          "explanation": "A gene is the basic physical and functional unit of heredity, made up of DNA.",
+          "order": 5
+        },
+        {
+          "text": "Which blood type is known as the universal donor?",
+          "option_a": "Type A",
+          "option_b": "Type B",
+          "option_c": "Type AB",
+          "option_d": "Type O",
+          "correct_option": "D",
+          "explanation": "Type O negative blood can be given to patients of any blood type in emergencies.",
+          "order": 6
+        },
+        {
+          "text": "What process divides a cell into two identical daughter cells?",
+          "option_a": "Meiosis",
+          "option_b": "Mitosis",
+          "option_c": "Cytokinesis",
+          "option_d": "Binary fission",
+          "correct_option": "B",
+          "explanation": "Mitosis is the process of cell division that produces two genetically identical daughter cells.",
+          "order": 7
+        },
+        {
+          "text": "Which of these is a function of the skeletal system?",
+          "option_a": "Producing hormones",
+          "option_b": "Producing blood cells",
+          "option_c": "Digesting food",
+          "option_d": "Regulating temperature",
+          "correct_option": "B",
+          "explanation": "Bone marrow inside bones produces red and white blood cells and platelets.",
+          "order": 8
+        },
+        {
+          "text": "What is the largest organ in the human body?",
+          "option_a": "Liver",
+          "option_b": "Brain",
+          "option_c": "Skin",
+          "option_d": "Heart",
+          "correct_option": "C",
+          "explanation": "The skin is the largest organ, covering about 2 square meters and weighing about 4-5 kg in adults.",
+          "order": 9
+        },
+        {
+          "text": "Which structure carries oxygenated blood away from the heart?",
+          "option_a": "Veins",
+          "option_b": "Capillaries",
+          "option_c": "Arteries",
+          "option_d": "Ventricles",
+          "correct_option": "C",
+          "explanation": "Arteries carry oxygenated blood away from the heart to the body (except for pulmonary arteries).",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Final High Stakes - CBG Showdown",
+      "quiz_type": "final",
+      "round_type": "final_high",
+      "level": null,
+      "date": "2024-03-20",
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 60,
+      "total_questions": 10,
+      "points_correct": 30,
+      "points_wrong": -10,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 15,
+      "questions": [
+        {
+          "text": "What is the name of the process where mRNA is synthesized from DNA?",
+          "option_a": "Translation",
+          "option_b": "Transcription",
+          "option_c": "Replication",
+          "option_d": "Transformation",
+          "correct_option": "B",
+          "explanation": "Transcription is the process of copying a segment of DNA into RNA, specifically mRNA.",
+          "order": 1
+        },
+        {
+          "text": "Which organelle contains its own DNA separate from the nucleus?",
+          "option_a": "Ribosome and ER",
+          "option_b": "Mitochondria and Chloroplasts",
+          "option_c": "Golgi and Lysosomes",
+          "option_d": "Vacuoles and Peroxisomes",
+          "correct_option": "B",
+          "explanation": "Mitochondria and chloroplasts have their own circular DNA, supporting the endosymbiotic theory.",
+          "order": 2
+        },
+        {
+          "text": "What is the Hardy-Weinberg principle used for?",
+          "option_a": "Predicting population genetics",
+          "option_b": "Calculating photosynthesis rates",
+          "option_c": "Measuring enzyme activity",
+          "option_d": "Determining protein structure",
+          "correct_option": "A",
+          "explanation": "The Hardy-Weinberg principle predicts allele frequencies in a population under ideal conditions.",
+          "order": 3
+        },
+        {
+          "text": "Which type of bond links amino acids together?",
+          "option_a": "Hydrogen bond",
+          "option_b": "Ionic bond",
+          "option_c": "Peptide bond",
+          "option_d": "Disulfide bond",
+          "correct_option": "C",
+          "explanation": "Peptide bonds are covalent bonds that link amino acids to form proteins.",
+          "order": 4
+        },
+        {
+          "text": "What is the function of the enzyme RNA polymerase?",
+          "option_a": "Breaking down RNA",
+          "option_b": "Synthesizing RNA from DNA",
+          "option_c": "Repairing DNA",
+          "option_d": "Joining Okazaki fragments",
+          "correct_option": "B",
+          "explanation": "RNA polymerase synthesizes RNA by reading the DNA template strand during transcription.",
+          "order": 5
+        },
+        {
+          "text": "Which of these is a secondary messenger in cell signaling?",
+          "option_a": "ATP",
+          "option_b": "cAMP",
+          "option_c": "DNA",
+          "option_d": "RNA",
+          "correct_option": "B",
+          "explanation": "Cyclic AMP (cAMP) is a common secondary messenger that amplifies signals from cell surface receptors.",
+          "order": 6
+        },
+        {
+          "text": "What is the purpose of the Calvin cycle?",
+          "option_a": "Produce ATP",
+          "option_b": "Fix carbon dioxide",
+          "option_c": "Split water molecules",
+          "option_d": "Release oxygen",
+          "correct_option": "B",
+          "explanation": "The Calvin cycle fixes CO2 into organic molecules like glucose using ATP and NADPH.",
+          "order": 7
+        },
+        {
+          "text": "Which immune cells produce antibodies?",
+          "option_a": "T cells",
+          "option_b": "B cells",
+          "option_c": "Macrophages",
+          "option_d": "Neutrophils",
+          "correct_option": "B",
+          "explanation": "B cells differentiate into plasma cells that produce antibodies specific to antigens.",
+          "order": 8
+        },
+        {
+          "text": "What is epigenetics?",
+          "option_a": "Study of genes only",
+          "option_b": "Heritable changes without DNA sequence change",
+          "option_c": "Study of extinct species",
+          "option_d": "Gene therapy techniques",
+          "correct_option": "B",
+          "explanation": "Epigenetics studies how gene expression is regulated by modifications that don't change the DNA sequence.",
+          "order": 9
+        },
+        {
+          "text": "Which of these is a G-protein coupled receptor (GPCR) function?",
+          "option_a": "DNA replication",
+          "option_b": "Signal transduction",
+          "option_c": "Protein synthesis",
+          "option_d": "Cell division",
+          "correct_option": "B",
+          "explanation": "GPCRs detect molecules outside the cell and activate internal signal transduction pathways.",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Speed Round - Quick Fire Biology",
+      "quiz_type": "final",
+      "round_type": "speed",
+      "level": null,
+      "date": "2024-03-20",
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 15,
+      "total_questions": 10,
+      "points_correct": 10,
+      "points_wrong": -5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "What is the pH of pure water?",
+          "option_a": "5",
+          "option_b": "6",
+          "option_c": "7",
+          "option_d": "8",
+          "correct_option": "C",
+          "explanation": "Pure water has a neutral pH of 7.",
+          "order": 1
+        },
+        {
+          "text": "How many pairs of chromosomes do humans have?",
+          "option_a": "22",
+          "option_b": "23",
+          "option_c": "24",
+          "option_d": "46",
+          "correct_option": "B",
+          "explanation": "Humans have 23 pairs (46 total) of chromosomes.",
+          "order": 2
+        },
+        {
+          "text": "What is the largest bone in the human body?",
+          "option_a": "Skull",
+          "option_b": "Femur",
+          "option_c": "Tibia",
+          "option_d": "Spine",
+          "correct_option": "B",
+          "explanation": "The femur (thigh bone) is the longest and strongest bone.",
+          "order": 3
+        },
+        {
+          "text": "Which vitamin is produced by the skin when exposed to sunlight?",
+          "option_a": "Vitamin A",
+          "option_b": "Vitamin B12",
+          "option_c": "Vitamin C",
+          "option_d": "Vitamin D",
+          "correct_option": "D",
+          "explanation": "Sunlight triggers Vitamin D production in the skin.",
+          "order": 4
+        },
+        {
+          "text": "What is the study of fungi called?",
+          "option_a": "Mycology",
+          "option_b": "Virology",
+          "option_c": "Bacteriology",
+          "option_d": "Ecology",
+          "correct_option": "A",
+          "explanation": "Mycology is the branch of biology concerned with the study of fungi.",
+          "order": 5
+        },
+        {
+          "text": "Which organ pumps blood throughout the body?",
+          "option_a": "Brain",
+          "option_b": "Liver",
+          "option_c": "Heart",
+          "option_d": "Lungs",
+          "correct_option": "C",
+          "explanation": "The heart is the muscular organ that pumps blood.",
+          "order": 6
+        },
+        {
+          "text": "What is the scientific name for modern humans?",
+          "option_a": "Homo erectus",
+          "option_b": "Homo habilis",
+          "option_c": "Homo sapiens",
+          "option_d": "Homo neanderthalensis",
+          "correct_option": "C",
+          "explanation": "Homo sapiens is the scientific name for modern humans.",
+          "order": 7
+        },
+        {
+          "text": "Which sugar is found in DNA?",
+          "option_a": "Glucose",
+          "option_b": "Fructose",
+          "option_c": "Deoxyribose",
+          "option_d": "Ribose",
+          "correct_option": "C",
+          "explanation": "DNA contains deoxyribose sugar, while RNA contains ribose.",
+          "order": 8
+        },
+        {
+          "text": "What is the process of cell division that produces gametes?",
+          "option_a": "Mitosis",
+          "option_b": "Binary fission",
+          "option_c": "Meiosis",
+          "option_d": "Budding",
+          "correct_option": "C",
+          "explanation": "Meiosis produces haploid gametes (sperm and egg cells).",
+          "order": 9
+        },
+        {
+          "text": "Which of these is a mammal?",
+          "option_a": "Penguin",
+          "option_b": "Shark",
+          "option_c": "Dolphin",
+          "option_d": "Lizard",
+          "correct_option": "C",
+          "explanation": "Dolphins are marine mammals; they breathe air and give live birth.",
+          "order": 10
+        }
+      ]
+    },
+    {
+      "title": "Image Round - Diagram Identification",
+      "quiz_type": "final",
+      "round_type": "image",
+      "level": null,
+      "date": "2024-03-20",
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 45,
+      "total_questions": 10,
+      "points_correct": 15,
+      "points_wrong": -5,
+      "speed_bonus_enabled": false,
+      "speed_bonus_max": 0,
+      "questions": [
+        {
+          "text": "Based on the diagram, which labeled structure is the nucleus?",
+          "image": "",
+          "option_a": "Structure A - Round, centrally located organelle",
+          "option_b": "Structure B - Small dots throughout cytoplasm",
+          "option_c": "Structure C - Network of membranes",
+          "option_d": "Structure D - Bean-shaped organelle",
+          "correct_option": "A",
+          "explanation": "The nucleus is typically the largest, round organelle containing genetic material.",
+          "order": 1
+        },
+        {
+          "text": "In the heart diagram, which chamber pumps blood to the body?",
+          "image": "",
+          "option_a": "Left atrium",
+          "option_b": "Left ventricle",
+          "option_c": "Right atrium",
+          "option_d": "Right ventricle",
+          "correct_option": "B",
+          "explanation": "The left ventricle pumps oxygenated blood through the aorta to the entire body.",
+          "order": 2
+        },
+        {
+          "text": "Which labeled part of the plant cell is the chloroplast?",
+          "image": "",
+          "option_a": "Green oval organelles with internal membranes",
+          "option_b": "Large central vacuole",
+          "option_c": "Thick outer cell wall",
+          "option_d": "Small spherical nucleus",
+          "correct_option": "A",
+          "explanation": "Chloroplasts contain chlorophyll and appear green with internal thylakoid membranes.",
+          "order": 3
+        },
+        {
+          "text": "In the DNA diagram, what do the rungs of the ladder represent?",
+          "image": "",
+          "option_a": "Sugar-phosphate backbone",
+          "option_b": "Nitrogenous base pairs",
+          "option_c": "Hydrogen bonds",
+          "option_d": "Nucleotides",
+          "correct_option": "B",
+          "explanation": "The rungs of the DNA ladder are the nitrogenous base pairs (A-T and C-G).",
+          "order": 4
+        },
+        {
+          "text": "Which bone is labeled in the skeleton diagram (upper arm)?",
+          "image": "",
+          "option_a": "Radius",
+          "option_b": "Ulna",
+          "option_c": "Humerus",
+          "option_d": "Clavicle",
+          "correct_option": "C",
+          "explanation": "The humerus is the long bone in the upper arm, connecting shoulder to elbow.",
+          "order": 5
+        },
+        {
+          "text": "In the neuron diagram, which part receives signals?",
+          "image": "",
+          "option_a": "Axon",
+          "option_b": "Dendrites",
+          "option_c": "Cell body",
+          "option_d": "Myelin sheath",
+          "correct_option": "B",
+          "explanation": "Dendrites are the branched projections that receive signals from other neurons.",
+          "order": 6
+        },
+        {
+          "text": "Which labeled structure in the flower is the ovary?",
+          "image": "",
+          "option_a": "Swollen base of pistil",
+          "option_b": "Anther at top of stamen",
+          "option_c": "Colorful petals",
+          "option_d": "Green sepals below petals",
+          "correct_option": "A",
+          "explanation": "The ovary is the enlarged basal portion of the pistil that contains ovules.",
+          "order": 7
+        },
+        {
+          "text": "In the cell membrane diagram, what are the blue spheres?",
+          "image": "",
+          "option_a": "Carbohydrate chains",
+          "option_b": "Protein channels",
+          "option_c": "Phospholipid heads",
+          "option_d": "Cholesterol molecules",
+          "correct_option": "C",
+          "explanation": "The hydrophilic phosphate heads face outward and inward, with hydrophobic tails inside.",
+          "order": 8
+        },
+        {
+          "text": "Which digestive organ is shown in the diagram (large, J-shaped)?",
+          "image": "",
+          "option_a": "Small intestine",
+          "option_b": "Liver",
+          "option_c": "Stomach",
+          "option_d": "Pancreas",
+          "correct_option": "C",
+          "explanation": "The stomach is a J-shaped muscular organ that churns and digests food with acid.",
+          "order": 9
+        },
+        {
+          "text": "In the photosynthesis diagram, what is entering at point X?",
+          "image": "",
+          "option_a": "Oxygen",
+          "option_b": "Glucose",
+          "option_c": "Carbon dioxide",
+          "option_d": "Water",
+          "correct_option": "C",
+          "explanation": "CO2 enters through stomata and is fixed during the Calvin cycle.",
+          "order": 10
+        }
+      ]
+    }
+  ]
+}

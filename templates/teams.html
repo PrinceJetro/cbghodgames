@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}Teams{% endblock %}
+
+{% block extra_head %}
+<style>
+  .teams-header { margin-bottom: 40px; }
+  .teams-header .label { margin-bottom: 10px; }
+  .teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+  }
+  .team-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .team-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .team-card-header {
+    padding: 22px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .team-title {
+    font-family: var(--font-head);
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  .team-score {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    color: var(--gold);
+    text-align: right;
+  }
+  .team-score-label {
+    font-size: 0.65rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-align: right;
+  }
+  .team-members { padding: 16px 24px; }
+  .member-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(31,36,48,0.7);
+  }
+  .member-row:last-child { border-bottom: none; }
+  .member-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .member-name {
+    flex: 1;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .level-colors {
+    --c100: #4e9eff;
+    --c200: #3ecf6a;
+    --c300: #f5c842;
+    --c400: #e8423a;
+  }
+  .badge-100 { background: rgba(78,158,255,0.15); color: #4e9eff; border: 1px solid rgba(78,158,255,0.3); border-radius: 4px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); padding: 2px 8px; letter-spacing: 1px; }
+  .badge-200 { background: rgba(62,207,106,0.15); color: #3ecf6a; border: 1px solid rgba(62,207,106,0.3); border-radius: 4px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); padding: 2px 8px; letter-spacing: 1px; }
+  .badge-300 { background: rgba(245,200,66,0.15); color: var(--gold); border: 1px solid rgba(245,200,66,0.3); border-radius: 4px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); padding: 2px 8px; letter-spacing: 1px; }
+  .badge-400 { background: rgba(232,66,58,0.15); color: var(--red); border: 1px solid rgba(232,66,58,0.3); border-radius: 4px; font-size: 0.72rem; font-weight: 700; font-family: var(--font-mono); padding: 2px 8px; letter-spacing: 1px; }
+
+  .empty-state {
+    text-align: center;
+    padding: 80px 24px;
+    color: var(--muted);
+  }
+  .empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+  .empty-state h2 { font-size: 2rem; margin-bottom: 8px; color: var(--text); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="teams-header fade-up">
+  <div class="label">Grand Finals</div>
+  <h1>THE TEAMS</h1>
+  <p style="color:var(--muted);max-width:480px;">
+    Five mixed-level squads. One champion. Each team carries a student from every level.
+  </p>
+</div>
+
+{% if team_data %}
+  <div class="teams-grid">
+    {% for td in team_data %}
+    <div class="team-card fade-up" style="animation-delay: {{ forloop.counter0 }}00ms">
+      <div class="team-card-header">
+        <div>
+          <div class="label" style="margin-bottom:4px;">Team</div>
+          <div class="team-title">{{ td.team.name|upper }}</div>
+        </div>
+        <div>
+          <div class="team-score">{{ td.team.total_score }}</div>
+          <div class="team-score-label">Points</div>
+        </div>
+      </div>
+
+      <div class="team-members level-colors">
+        {% for member in td.members %}
+        <div class="member-row">
+          <div class="member-avatar">
+            {{ member.participant.user.get_full_name|slice:":1"|upper|default:member.participant.user.username|slice:":1"|upper }}
+          </div>
+          <div class="member-name">
+            {{ member.participant.user.get_full_name|default:member.participant.user.username }}
+          </div>
+          <span class="badge-{{ member.participant.level }}">{{ member.participant.level }}L</span>
+        </div>
+        {% endfor %}
+
+        {% if td.member_count == 0 %}
+          <p style="color:var(--muted);font-size:0.85rem;padding:12px 0;">No members yet.</p>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+{% else %}
+  <div class="empty-state card fade-up">
+    <div class="icon">⚔️</div>
+    <h2>Teams Not Yet Formed</h2>
+    <p>The qualifiers need to finish first.<br>Top 5 from each level will be selected and shuffled into 5 mixed teams.</p>
+    {% if user.is_staff %}
+      <a href="{% url 'team_formation' %}" class="btn btn-primary" style="margin-top:24px;">
+        Form Teams Now →
+      </a>
+    {% else %}
+      <a href="{% url 'qualifiers' %}" class="btn btn-outline" style="margin-top:24px;">
+        Take My Qualifier →
+      </a>
+    {% endif %}
+  </div>
+{% endif %}
+{% endblock %}

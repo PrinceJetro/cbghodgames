@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Logged Out{% endblock %}
+
+{% block content %}
+<div class="container-sm card card-glow" style="padding: 40px; text-align: center;">
+  <h1>You are now logged out</h1>
+  <p class="muted" style="margin: 18px 0 28px;">Thanks for playing. Come back soon for more Brain Battle action.</p>
+  <a href="{% url 'home' %}" class="btn btn-primary">Return to Home</a>
+</div>
+{% endblock %}

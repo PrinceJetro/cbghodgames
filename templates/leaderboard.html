@@ -1,0 +1,410 @@
+{% extends "base.html" %}
+{% block title %}Leaderboard{% endblock %}
+
+{% block extra_head %}
+<style>
+  .lb-header {
+    margin-bottom: 36px;
+  }
+  .lb-header .label { margin-bottom: 10px; }
+  .lb-header h1 { margin-bottom: 6px; }
+  .lb-header p { color: var(--muted); }
+
+  /* TABS */
+  .tab-nav {
+    display: flex;
+    gap: 4px;
+    border-bottom: 1.5px solid var(--border);
+    margin-bottom: 32px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tab-nav::-webkit-scrollbar { display: none; }
+  .tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 2.5px solid transparent;
+    margin-bottom: -1.5px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .tab-btn:hover { color: var(--text); }
+  .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; animation: fadeUp 0.3s ease; }
+
+  /* LEADERBOARD TABLE */
+  .lb-table { width: 100%; border-collapse: collapse; }
+  .lb-table th {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: left;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .lb-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(31,36,48,0.6);
+    font-size: 0.92rem;
+    vertical-align: middle;
+  }
+  .lb-table tr:last-child td { border-bottom: none; }
+  .lb-table tr:hover td { background: var(--surface2); }
+  .lb-row-top td { background: rgba(245,200,66,0.04); }
+
+  .lb-name { font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .lb-name .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-head);
+    font-size: 0.9rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .lb-score {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    color: var(--gold);
+    text-align: right;
+  }
+  .lb-rank { font-family: var(--font-head); font-size: 1.3rem; }
+
+  /* QUALIFIER TABS (sub) */
+  .level-tabs {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  .level-btn {
+    padding: 6px 18px;
+    border-radius: 99px;
+    background: var(--surface2);
+    border: 1.5px solid var(--border);
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: var(--font-body);
+  }
+  .level-btn:hover { border-color: var(--gold); color: var(--gold); }
+  .level-btn.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+  .level-board { display: none; }
+  .level-board.active { display: block; animation: fadeUp 0.3s ease; }
+
+  /* TEAM CARDS */
+  .team-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .team-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    transition: border-color 0.2s;
+  }
+  .team-card:first-child { border-color: rgba(245,200,66,0.4); box-shadow: 0 0 24px rgba(245,200,66,0.07); }
+  .team-card:hover { border-color: rgba(245,200,66,0.2); }
+  .team-name {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .team-score-big {
+    font-family: var(--font-head);
+    font-size: 2.2rem;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  /* PAST WINNERS */
+  .winner-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .winner-row:last-child { border-bottom: none; }
+  .winner-day { font-family: var(--font-head); font-size: 1.2rem; color: var(--gold); min-width: 80px; }
+  .winner-name { font-weight: 600; }
+  .winner-score { margin-left: auto; font-family: var(--font-mono); color: var(--muted); font-size: 0.88rem; }
+
+  .empty-state {
+    text-align: center;
+    padding: 48px;
+    color: var(--muted);
+  }
+  .empty-state .icon { font-size: 2.5rem; margin-bottom: 12px; }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="lb-header fade-up">
+  <div class="label">CBG HOD Games 2026</div>
+  <h1>LEADERBOARD</h1>
+  <p>Rankings across all events — daily, qualifiers, and finals.</p>
+</div>
+
+<!-- TABS -->
+<div class="tab-nav fade-up-2">
+  <button class="tab-btn active" onclick="switchTab('daily', this)">📱 Today's Quiz</button>
+  <button class="tab-btn" onclick="switchTab('overall', this)">🏅 Overall</button>
+  <button class="tab-btn" onclick="switchTab('qualifiers', this)">🎯 Qualifiers</button>
+  <button class="tab-btn" onclick="switchTab('teams', this)">⚔️ Teams</button>
+  <button class="tab-btn" onclick="switchTab('history', this)">📅 Past Winners</button>
+</div>
+
+<!-- DAILY QUIZ TAB -->
+<div class="tab-panel active" id="tab-daily">
+  {% if daily_event %}
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px;flex-wrap:wrap;">
+      <span style="font-size:2rem;">{{ daily_event.emoji }}</span>
+      <div>
+        <div class="label">Day {{ daily_event.day_number }}</div>
+        <h3>{{ daily_event.title }}</h3>
+      </div>
+    </div>
+  {% endif %}
+
+  {% if daily_scores %}
+    <div class="card">
+      <table class="lb-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Level</th>
+            <th style="text-align:right">Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for entry in daily_scores %}
+          <tr {% if forloop.counter <= 3 %}class="lb-row-top"{% endif %}>
+            <td>
+              <span class="lb-rank rank-{{ forloop.counter }}">
+                {% if forloop.counter == 1 %}🥇
+                {% elif forloop.counter == 2 %}🥈
+                {% elif forloop.counter == 3 %}🥉
+                {% else %}#{{ forloop.counter }}{% endif %}
+              </span>
+            </td>
+            <td>
+              <div class="lb-name">
+                <div class="avatar">{{ entry.player_name|slice:":1"|upper }}</div>
+                {{ entry.player_name }}
+              </div>
+            </td>
+            <td>
+              {% if entry.player_level != "—" %}
+                <span class="badge badge-blue">{{ entry.player_level }}L</span>
+              {% else %}
+                <span class="muted">—</span>
+              {% endif %}
+            </td>
+            <td class="lb-score">{{ entry.total_score }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="empty-state card">
+      <div class="icon">📱</div>
+      <p>No scores yet for today's quiz.<br>Be the first to play!</p>
+      <a href="{% url 'daily_quiz' %}" class="btn btn-primary" style="margin-top:20px;">Play Now →</a>
+    </div>
+  {% endif %}
+</div>
+
+<!-- OVERALL TAB -->
+<div class="tab-panel" id="tab-overall">
+  {% if overall_scores %}
+    <div class="card">
+      <table class="lb-table">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Level</th>
+            <th style="text-align:right">Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for row in overall_scores %}
+          <tr {% if row.rank <= 3 %}class="lb-row-top"{% endif %}>
+            <td>
+              <span class="lb-rank rank-{{ row.rank }}">
+                {% if row.rank == 1 %}🥇{% elif row.rank == 2 %}🥈{% elif row.rank == 3 %}🥉{% else %}#{{ row.rank }}{% endif %}
+              </span>
+            </td>
+            <td>
+              <div class="lb-name">
+                <div class="avatar">{{ row.participant.user.get_full_name|slice:":1"|upper|default:row.participant.user.username|slice:":1"|upper }}</div>
+                {{ row.participant.user.get_full_name|default:row.participant.user.username }}
+              </div>
+            </td>
+            <td><span class="badge badge-blue">{{ row.participant.level }}L</span></td>
+            <td class="lb-score">{{ row.total_score }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  {% else %}
+    <div class="empty-state card">
+      <div class="icon">🏅</div>
+      <p>No overall scores yet. Qualifiers haven't started.</p>
+    </div>
+  {% endif %}
+</div>
+
+<!-- QUALIFIERS TAB -->
+<div class="tab-panel" id="tab-qualifiers">
+  <div class="level-tabs">
+    <button class="level-btn active" onclick="switchLevel('100L', this)">100L</button>
+    <button class="level-btn" onclick="switchLevel('200L', this)">200L</button>
+    <button class="level-btn" onclick="switchLevel('300L', this)">300L</button>
+    <button class="level-btn" onclick="switchLevel('400L', this)">400L</button>
+  </div>
+
+  {% for level_key, entries in qualifier_leaderboards.items %}
+  <div class="level-board {% if level_key == '100L' %}active{% endif %}" id="level-{{ level_key }}">
+    <div style="margin-bottom:16px;">
+      <span class="badge badge-gold">Top 5 · {{ level_key }}</span>
+      <span style="color:var(--muted);font-size:0.82rem;margin-left:10px;">These students qualify for the Grand Finals</span>
+    </div>
+    {% if entries %}
+      <div class="card">
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th style="text-align:right">Score</th>
+              <th style="text-align:right">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for entry in entries %}
+            <tr {% if forloop.counter <= 3 %}class="lb-row-top"{% endif %}>
+              <td><span class="lb-rank rank-{{ forloop.counter }}">#{{ forloop.counter }}</span></td>
+              <td>
+                <div class="lb-name">
+                  <div class="avatar">{{ entry.player_name|slice:":1"|upper }}</div>
+                  {{ entry.player_name }}
+                </div>
+              </td>
+              <td class="lb-score">{{ entry.total_score }}</td>
+              <td style="text-align:right">
+                {% if forloop.counter <= 5 %}
+                  <span class="badge badge-green">✓ Qualified</span>
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    {% else %}
+      <div class="empty-state card">
+        <div class="icon">🎯</div>
+        <p>No qualifier results yet for {{ level_key }}.</p>
+      </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</div>
+
+<!-- TEAMS TAB -->
+<div class="tab-panel" id="tab-teams">
+  {% if teams %}
+    <div class="team-grid">
+      {% for team in teams %}
+      <div class="team-card">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px;">
+          <div class="team-name">
+            {% if forloop.counter == 1 %}🥇{% elif forloop.counter == 2 %}🥈{% elif forloop.counter == 3 %}🥉{% else %}🏅{% endif %}
+            {{ team.name }}
+          </div>
+          <span class="badge badge-gold">#{{ forloop.counter }}</span>
+        </div>
+        <div class="team-score-big">{{ team.total_score }} pts</div>
+        <div style="font-size:0.78rem;color:var(--muted);font-family:var(--font-mono);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Members</div>
+        {% for member in team.members.all %}
+          <div style="font-size:0.88rem;padding:4px 0;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;">
+            <span>{{ member.participant.user.get_full_name|default:member.participant.user.username }}</span>
+            <span class="badge badge-blue">{{ member.participant.level }}L</span>
+          </div>
+        {% endfor %}
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state card">
+      <div class="icon">⚔️</div>
+      <p>Teams haven't been formed yet.<br>Check back after the qualifiers!</p>
+    </div>
+  {% endif %}
+</div>
+
+<!-- PAST WINNERS TAB -->
+<div class="tab-panel" id="tab-history">
+  <h3 style="margin-bottom:20px;">Daily Quiz Past Winners</h3>
+  {% if past_winners %}
+    <div class="card">
+      {% for pw in past_winners %}
+      <div class="winner-row">
+        <div class="winner-day">{{ pw.event.emoji }} Day {{ pw.event.day_number }}</div>
+        <div>
+          <div class="winner-name">{{ pw.winner }}</div>
+          <div style="font-size:0.78rem;color:var(--muted);">{{ pw.event.title }}</div>
+        </div>
+        <div class="winner-score">{{ pw.score }} pts</div>
+      </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-state card">
+      <div class="icon">📅</div>
+      <p>No past daily quiz results yet. Come back tomorrow!</p>
+    </div>
+  {% endif %}
+</div>
+
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function switchLevel(level, btn) {
+    document.querySelectorAll('.level-board').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.level-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('level-' + level).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+{% endblock %}

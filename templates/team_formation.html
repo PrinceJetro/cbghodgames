@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+{% block title %}Team Formation — Admin{% endblock %}
+
+{% block extra_head %}
+<style>
+  .admin-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(232,66,58,0.12);
+    border: 1px solid rgba(232,66,58,0.3);
+    color: var(--red);
+    border-radius: 99px;
+    padding: 4px 14px;
+    font-size: 0.72rem;
+    font-family: var(--font-mono);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .qualifier-check {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+  .qual-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+  }
+  .qual-num {
+    font-family: var(--font-head);
+    font-size: 2.4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .qual-num.insufficient { color: var(--red); }
+  .qual-label {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .qual-status {
+    margin-top: 8px;
+    font-size: 0.78rem;
+  }
+
+  .formation-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px;
+    margin-bottom: 28px;
+  }
+  .warning-box {
+    background: rgba(245,200,66,0.07);
+    border: 1px solid rgba(245,200,66,0.25);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-size: 0.88rem;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+  .warning-box ul { margin-top: 8px; padding-left: 20px; }
+  .warning-box li { margin-bottom: 4px; }
+
+  .existing-team {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 10px;
+  }
+  .existing-team h4 { font-size: 1rem; margin-bottom: 8px; color: var(--gold); }
+  .existing-team .members { display: flex; gap: 8px; flex-wrap: wrap; }
+  .existing-team .member-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.78rem;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="fade-up">
+  <div class="admin-badge">🔒 Admin Only</div>
+  <h1>TEAM FORMATION</h1>
+  <p style="color:var(--muted);margin-bottom:32px;">
+    Automatically generate 5 mixed-level teams from qualifier results.
+    Each team will have one student from each level (100L–400L).
+  </p>
+</div>
+
+<!-- QUALIFIER STATUS -->
+<div class="fade-up-2">
+  <div class="label" style="margin-bottom:12px;">Qualifier Results Available</div>
+  <div class="qualifier-check">
+    {% for level, count in qualifier_counts.items %}
+    <div class="qual-card">
+      <div class="qual-num {% if count < 5 %}insufficient{% endif %}">{{ count }}</div>
+      <div class="qual-label">{{ level }}L Qualifiers</div>
+      <div class="qual-status">
+        {% if count >= 5 %}
+          <span class="badge badge-green">✓ Ready</span>
+        {% elif count > 0 %}
+          <span class="badge badge-gold">⚠ {{ count }}/5</span>
+        {% else %}
+          <span class="badge badge-red">✗ None</span>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- FORM ACTION -->
+<div class="formation-card fade-up-3">
+  <h2 style="font-size:1.8rem;margin-bottom:8px;">Generate Teams</h2>
+
+  <div class="warning-box">
+    ⚠️ <strong>Before you proceed:</strong>
+    <ul>
+      <li>This will DELETE all existing teams and regenerate from scratch.</li>
+      <li>Requires at least 1 qualifier per level to form any teams.</li>
+      <li>Team assignment is randomised — run it for the live draw effect.</li>
+    </ul>
+  </div>
+
+  <form method="post" onsubmit="return confirm('Generate 5 new teams? This will clear any existing teams.')">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary btn-lg">
+      ⚡ Generate 5 Teams Now
+    </button>
+    <a href="{% url 'teams' %}" class="btn btn-outline btn-lg" style="margin-left:12px;">
+      View Current Teams
+    </a>
+  </form>
+</div>
+
+<!-- EXISTING TEAMS PREVIEW -->
+{% if existing_teams %}
+<div class="fade-up-4">
+  <div class="label" style="margin-bottom:12px;">Current Teams ({{ existing_teams|length }})</div>
+  {% for team in existing_teams %}
+  <div class="existing-team">
+    <h4>{{ team.name }}</h4>
+    <div class="members">
+      {% for member in team.members.all %}
+        <span class="member-chip">
+          {{ member.participant.user.get_full_name|default:member.participant.user.username }}
+          <span style="color:var(--muted);margin-left:4px;">{{ member.participant.level }}L</span>
+        </span>
+      {% empty %}
+        <span style="color:var(--muted);font-size:0.82rem;">No members</span>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% endblock %}

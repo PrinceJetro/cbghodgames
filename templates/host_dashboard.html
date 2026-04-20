@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% block title %}Host Dashboard - {{ quiz.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row mb-4">
+        <div class="col-12 text-center">
+            <h1 class="display-5 fw-bold text-warning">HOST DASHBOARD</h1>
+            <p class="text-muted">{{ quiz.title }}</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Controls Column -->
+        <div class="col-md-4 mb-4">
+            <div class="card bg-dark border-secondary">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Stage Controls</h5>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-outline-warning" onclick="setStatus('waiting')">1. Waiting Screen</button>
+                        <button class="btn btn-outline-info" onclick="setStatus('leaderboard')">4. Show Leaderboard</button>
+                        <button class="btn btn-outline-danger" onclick="setStatus('finished')">5. Finish Quiz</button>
+                        <hr class="border-secondary">
+                        <button class="btn btn-danger" onclick="if(confirm('Are you sure? This will delete ALL team points for this quiz so you can test it again.')) resetQuiz();">⚠ Reset Quiz Data (For Testing)</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card bg-dark border-secondary mt-4">
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">Current Status</h5>
+                </div>
+                <div class="card-body text-center">
+                    <h3 id="current-status" class="text-light">Loading...</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Questions Column -->
+        <div class="col-md-8">
+            <div class="card bg-dark border-secondary">
+                <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">Questions Manager</h5>
+                    <button class="btn btn-success btn-sm" onclick="setStatus('answer_revealed')">Reveal Answer on TV</button>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        {% for question in quiz.questions.all %}
+                        <li class="list-group-item bg-dark text-light border-secondary d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Q{{ question.order }}:</strong> {{ question.text|truncatechars:60 }}
+                                <br>
+                                <small class="text-success">Correct: {{ question.correct_option }}</small>
+                            </div>
+                            <button class="btn btn-primary btn-sm" onclick="setQuestion({{ question.id }})">
+                                Show Question on TV
+                            </button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function apiCall(data) {
+        fetch("{% url 'api_host_action' quiz.id %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: new URLSearchParams(data)
+        }).then(res => res.json()).then(data => {
+            if (data.status === 'ok') {
+                updateStatus();
+            } else {
+                alert("Error: " + data.error);
+            }
+        });
+    }
+
+    function setStatus(status) {
+        apiCall({action: 'set_status', status: status});
+    }
+
+    function resetQuiz() {
+        apiCall({action: 'reset_quiz'});
+    }
+
+    function setQuestion(questionId) {
+        apiCall({action: 'set_question', question_id: questionId});
+    }
+
+    function updateStatus() {
+        fetch("{% url 'api_live_state' quiz.id %}")
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('current-status').innerText = data.status.toUpperCase();
+            });
+    }
+
+    setInterval(updateStatus, 3000);
+    updateStatus();
+</script>
+{% endblock %}

@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+{% block title %}Grand Finals{% endblock %}
+
+{% block extra_head %}
+<style>
+  .finals-header { margin-bottom: 40px; }
+  .round-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .round-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    transition: border-color 0.2s;
+  }
+  .round-card.active-round {
+    border-color: var(--gold);
+    box-shadow: 0 0 24px rgba(245,200,66,0.1);
+  }
+  .round-icon { font-size: 2rem; margin-bottom: 12px; }
+  .round-title {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+  }
+  .round-desc { font-size: 0.85rem; color: var(--muted); margin-bottom: 16px; }
+  .round-scoring {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+  .score-pill {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 3px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .score-correct { background: rgba(62,207,106,0.12); color: var(--green); border: 1px solid rgba(62,207,106,0.2); }
+  .score-wrong   { background: rgba(232,66,58,0.12); color: var(--red); border: 1px solid rgba(232,66,58,0.2); }
+  .score-bonus   { background: rgba(78,158,255,0.12); color: var(--blue); border: 1px solid rgba(78,158,255,0.2); }
+
+  .team-standings {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .standings-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .standings-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(31,36,48,0.6);
+    transition: background 0.15s;
+  }
+  .standings-row:last-child { border-bottom: none; }
+  .standings-row:hover { background: var(--surface2); }
+  .standings-pos {
+    font-family: var(--font-head);
+    font-size: 1.4rem;
+    width: 40px;
+    flex-shrink: 0;
+  }
+  .standings-name { flex: 1; font-weight: 600; font-size: 1rem; }
+  .standings-score {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    color: var(--gold);
+  }
+  .live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: live-blink 1s ease-in-out infinite;
+  }
+  @keyframes live-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.2; }
+  }
+
+  .projector-btn {
+    background: rgba(78,158,255,0.12);
+    border: 1.5px solid rgba(78,158,255,0.3);
+    color: var(--blue);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.15s;
+  }
+  .projector-btn:hover { background: rgba(78,158,255,0.2); }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="finals-header fade-up">
+  <div class="admin-badge" style="display:inline-flex;align-items:center;gap:6px;background:rgba(232,66,58,0.12);border:1px solid rgba(232,66,58,0.3);color:var(--red);border-radius:99px;padding:4px 14px;font-size:0.72rem;font-family:var(--font-mono);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;">
+    🔒 Admin View
+  </div>
+  <h1>GRAND FINALS</h1>
+  <p style="color:var(--muted);">Manage the live final rounds. Open rounds for teams, monitor scores, control the projector display.</p>
+</div>
+
+<!-- ROUNDS -->
+<div class="label fade-up-2" style="margin-bottom:14px;">Final Rounds</div>
+<div class="round-grid fade-up-2">
+  {% for quiz in final_quizzes %}
+  <div class="round-card {% if quiz.is_active %}active-round{% endif %}">
+    <div class="round-icon">
+      {% if quiz.round_type == 'general' %}🔬
+      {% elif quiz.round_type == 'department' %}🏛️
+      {% elif quiz.round_type == 'speed' %}⚡
+      {% elif quiz.round_type == 'image' %}🖼️
+      {% elif quiz.round_type == 'final_high' %}🔥
+      {% else %}📝{% endif %}
+    </div>
+    <div class="round-title">{{ quiz.get_round_type_display }}</div>
+    <div class="round-desc">{{ quiz.title }}</div>
+    <div class="round-scoring">
+      <span class="score-pill score-correct">+{{ quiz.points_correct }} correct</span>
+      {% if quiz.points_wrong != 0 %}
+        <span class="score-pill score-wrong">{{ quiz.points_wrong }} wrong</span>
+      {% endif %}
+      {% if quiz.speed_bonus_enabled %}
+        <span class="score-pill score-bonus">⚡ +{{ quiz.speed_bonus_max }} speed</span>
+      {% endif %}
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      {% if quiz.is_active %}
+        <span class="badge badge-green">● Active</span>
+        <a href="{% url 'live_leaderboard_api' quiz.id %}" target="_blank" class="projector-btn">
+          📺 Live API
+        </a>
+      {% else %}
+        <span class="badge badge-red">Inactive</span>
+      {% endif %}
+      <a href="/admin/quiz/quiz/{{ quiz.id }}/change/" class="btn btn-outline" style="padding:6px 14px;font-size:0.82rem;">Edit</a>
+    </div>
+  </div>
+  {% empty %}
+  <div class="card" style="grid-column:1/-1;text-align:center;padding:48px;color:var(--muted);">
+    <p>No final round quizzes created yet.<br>
+    <a href="/admin/quiz/quiz/add/" style="color:var(--gold);">Create them in the Django admin →</a></p>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- TEAM STANDINGS -->
+<div class="fade-up-3">
+  <div class="standings-header">
+    <div>
+      <div class="label" style="margin-bottom:4px;">Live Team Standings</div>
+      <h2 style="font-size:1.6rem;">TEAMS</h2>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;">
+      <span style="font-size:0.82rem;color:var(--muted);">
+        <span class="live-dot"></span>Updates after each round
+      </span>
+      <a href="{% url 'live_display' %}" target="_blank" class="projector-btn">
+        📺 Projector Screen
+      </a>
+    </div>
+  </div>
+
+  <div class="team-standings">
+    {% for team in teams %}
+    <div class="standings-row">
+      <div class="standings-pos rank-{{ forloop.counter }}">
+        {% if forloop.counter == 1 %}🥇{% elif forloop.counter == 2 %}🥈{% elif forloop.counter == 3 %}🥉{% else %}#{{ forloop.counter }}{% endif %}
+      </div>
+      <div class="standings-name">{{ team.name }}</div>
+      <div class="standings-score">{{ team.total_score }}</div>
+    </div>
+    {% empty %}
+    <div style="padding:32px;text-align:center;color:var(--muted);">
+      No teams yet. <a href="{% url 'team_formation' %}" style="color:var(--gold);">Form teams first →</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

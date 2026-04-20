@@ -1,0 +1,366 @@
+{% extends 'base.html' %}
+{% block title %}Team Buzzer - {{ team.name }}{% endblock %}
+
+{% block content %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+    :root {
+      --bg:     #05070b;
+      --gold:   #f5c842;
+      --red:    #e8423a;
+      --green:  #3ecf6a;
+      --blue:   #4e9eff;
+      --text:   #e8eaf0;
+      --muted:  #5a6070;
+      --border: #151a25;
+    }
+    body { 
+        background-color: var(--bg); 
+        color: var(--text);
+        font-family: 'DM Sans', sans-serif;
+    }
+    .buzzer-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .buzzer-header h2 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    .team-name-highlight {
+        color: var(--gold);
+        text-shadow: 0 0 10px rgba(245,200,66,0.3);
+    }
+    
+    .status-banner {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2.8rem;
+        letter-spacing: 3px;
+        text-align: center;
+        padding: 25px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid var(--border);
+        margin-bottom: 25px;
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        transition: all 0.3s ease;
+    }
+    .status-waiting { color: var(--gold); border-color: rgba(245,200,66,0.3); box-shadow: 0 0 20px rgba(245,200,66,0.1); }
+    .status-active { color: var(--green); border-color: rgba(62,207,106,0.4); box-shadow: 0 0 30px rgba(62,207,106,0.2); animation: pulseBlink 1.5s infinite; }
+    .status-locked { color: var(--red); border-color: rgba(232,66,58,0.3); opacity: 0.8; }
+    
+    .timer-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: rgba(0,0,0,0.5);
+        color: var(--gold);
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 2rem;
+        padding: 5px 15px;
+        border-radius: 10px;
+        border: 2px solid var(--gold);
+        display: none;
+    }
+    .timer-warning {
+        color: var(--red);
+        border-color: var(--red);
+        animation: pulseBlink 0.5s infinite;
+    }
+    
+    @keyframes pulseBlink {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.02); opacity: 0.8; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .question-box {
+        background: rgba(255,255,255,0.03);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 25px;
+        font-size: 1.4rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 30px;
+        line-height: 1.4;
+        display: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .buzzer-btn {
+        height: auto;
+        min-height: 110px;
+        width: 100%;
+        border-radius: 16px;
+        transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 15px 25px;
+        text-align: left;
+        line-height: 1.3;
+        border: 2px solid transparent;
+        background: rgba(255,255,255,0.04);
+        color: var(--text);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+    }
+    .buzzer-btn::before {
+        content: ''; position: absolute; inset: 0; opacity: 0.1; transition: opacity 0.2s;
+    }
+    .buzzer-btn:hover::before { opacity: 0.2; }
+    .buzzer-btn:active { transform: scale(0.96); }
+    
+    .btn-opt-A { border-color: rgba(78,158,255,0.3); }
+    .btn-opt-A::before { background: var(--blue); }
+    .btn-opt-B { border-color: rgba(232,66,58,0.3); }
+    .btn-opt-B::before { background: var(--red); }
+    .btn-opt-C { border-color: rgba(245,200,66,0.3); }
+    .btn-opt-C::before { background: var(--gold); }
+    .btn-opt-D { border-color: rgba(62,207,106,0.3); }
+    .btn-opt-D::before { background: var(--green); }
+
+    .buzzer-letter {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 3.5rem;
+        margin-right: 20px;
+        width: 40px;
+        text-align: center;
+    }
+    
+    .btn-opt-A .buzzer-letter { color: var(--blue); }
+    .btn-opt-B .buzzer-letter { color: var(--red); }
+    .btn-opt-C .buzzer-letter { color: var(--gold); }
+    .btn-opt-D .buzzer-letter { color: var(--green); }
+
+    .buzzer-text {
+        font-size: 1.25rem;
+        font-weight: 600;
+        flex: 1;
+        z-index: 1; /* keep text above pseudo element */
+    }
+
+    #buzzer-pad {
+        opacity: 0.4;
+        pointer-events: none;
+        transition: opacity 0.3s;
+    }
+    
+    .container-buzzer {
+        max-width: 800px;
+        margin: 0 auto;
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+    }
+</style>
+
+<div class="container-buzzer px-3" style="position: relative;">
+    <div id="buzzerTimer" class="timer-badge">15</div>
+    <div class="buzzer-header">
+        <h2 class="text-light">TEAM: <span class="team-name-highlight">{{ team.name }}</span></h2>
+    </div>
+
+    <div id="status-container" class="status-banner status-waiting">
+        WAITING FOR HOST...
+    </div>
+
+    <div id="question-text" class="question-box"></div>
+
+    <div class="row g-4" id="buzzer-pad">
+        <div class="col-12 col-md-6">
+            <button class="buzzer-btn btn-opt-A" onclick="submitAnswer('A')">
+                <div class="buzzer-letter">A</div> 
+                <div class="buzzer-text" id="optA-text">Option A</div>
+            </button>
+        </div>
+        <div class="col-12 col-md-6">
+            <button class="buzzer-btn btn-opt-B" onclick="submitAnswer('B')">
+                <div class="buzzer-letter">B</div> 
+                <div class="buzzer-text" id="optB-text">Option B</div>
+            </button>
+        </div>
+        <div class="col-12 col-md-6">
+            <button class="buzzer-btn btn-opt-C" onclick="submitAnswer('C')">
+                <div class="buzzer-letter">C</div> 
+                <div class="buzzer-text" id="optC-text">Option C</div>
+            </button>
+        </div>
+        <div class="col-12 col-md-6">
+            <button class="buzzer-btn btn-opt-D" onclick="submitAnswer('D')">
+                <div class="buzzer-letter">D</div> 
+                <div class="buzzer-text" id="optD-text">Option D</div>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let currentStatus = '';
+    let currentQuestionId = null;
+    let questionStartTimeStr = null;
+    let questionStartTimeObj = null;
+    let hasAnswered = false;
+    let timerInterval = null;
+
+    function startCountdown() {
+        if (!questionStartTimeObj) return;
+        clearInterval(timerInterval);
+        
+        const timerEl = document.getElementById('buzzerTimer');
+        timerEl.style.display = 'block';
+        timerEl.className = 'timer-badge';
+        
+        timerInterval = setInterval(() => {
+            const now = new Date();
+            const elapsed = (now - questionStartTimeObj) / 1000;
+            let left = Math.ceil(15 - elapsed);
+            
+            if (left <= 0) {
+                left = 0;
+                clearInterval(timerInterval);
+                timerEl.innerText = "0";
+                timerEl.className = 'timer-badge timer-warning';
+                
+                // Auto lock if time is up and hasn't answered
+                if (!hasAnswered && currentStatus === 'question_active') {
+                    hasAnswered = true;
+                    const statusBox = document.getElementById('status-container');
+                    statusBox.className = 'status-banner status-locked';
+                    statusBox.innerText = `TIME'S UP!`;
+                    const pad = document.getElementById('buzzer-pad');
+                    pad.style.opacity = '0.4';
+                    pad.style.pointerEvents = 'none';
+                }
+            } else {
+                timerEl.innerText = left;
+                if (left <= 5) {
+                    timerEl.className = 'timer-badge timer-warning';
+                }
+            }
+        }, 100);
+    }
+
+    function pollState() {
+        fetch("{% url 'api_live_state' quiz.id %}?_t=" + Date.now())
+            .then(res => res.json())
+            .then(data => {
+                if (data.status !== currentStatus || (data.question && data.question.id !== currentQuestionId)) {
+                    updateUI(data);
+                }
+            })
+            .catch(err => console.error(err));
+    }
+
+    function updateUI(data) {
+        currentStatus = data.status;
+        const statusBox = document.getElementById('status-container');
+        const pad = document.getElementById('buzzer-pad');
+        const qText = document.getElementById('question-text');
+
+        if (data.question) {
+            if (currentQuestionId !== data.question.id) {
+                hasAnswered = false;
+            }
+            currentQuestionId = data.question.id;
+            qText.innerText = data.question.text;
+            qText.style.display = 'block';
+            
+            document.getElementById('optA-text').innerText = data.question.option_a;
+            document.getElementById('optB-text').innerText = data.question.option_b;
+            document.getElementById('optC-text').innerText = data.question.option_c;
+            document.getElementById('optD-text').innerText = data.question.option_d;
+            
+            if (currentStatus === 'question_active' && data.question.start_time) {
+                if (questionStartTimeStr !== data.question.start_time) {
+                    questionStartTimeStr = data.question.start_time;
+                    questionStartTimeObj = new Date(data.question.start_time);
+                    startCountdown();
+                }
+            } else {
+                clearInterval(timerInterval);
+                document.getElementById('buzzerTimer').style.display = 'none';
+            }
+        } else {
+            qText.style.display = 'none';
+            clearInterval(timerInterval);
+            document.getElementById('buzzerTimer').style.display = 'none';
+        }
+
+        if (currentStatus === 'waiting' || currentStatus === 'leaderboard' || currentStatus === 'finished') {
+            statusBox.className = 'status-banner status-waiting';
+            statusBox.innerText = 'LOOK AT THE BIG SCREEN!';
+            pad.style.opacity = '0.4';
+            pad.style.pointerEvents = 'none';
+            hasAnswered = false;
+        } else if (currentStatus === 'question_active') {
+            if (!hasAnswered) {
+                // Check if already timed out by server start time
+                let isTimedOut = false;
+                if (questionStartTimeObj) {
+                    const elapsed = (new Date() - questionStartTimeObj) / 1000;
+                    if (elapsed > 15) isTimedOut = true;
+                }
+                
+                if (isTimedOut) {
+                    hasAnswered = true;
+                    statusBox.className = 'status-banner status-locked';
+                    statusBox.innerText = `TIME'S UP!`;
+                    pad.style.opacity = '0.4';
+                    pad.style.pointerEvents = 'none';
+                } else {
+                    statusBox.className = 'status-banner status-active';
+                    statusBox.innerText = 'GO! GO! GO!';
+                    pad.style.opacity = '1';
+                    pad.style.pointerEvents = 'auto';
+                }
+            }
+        } else if (currentStatus === 'answer_revealed') {
+            statusBox.className = 'status-banner status-waiting';
+            statusBox.innerText = 'ANSWER REVEALED';
+            pad.style.opacity = '0.4';
+            pad.style.pointerEvents = 'none';
+        }
+    }
+
+    function submitAnswer(option) {
+        if (hasAnswered) return;
+        
+        let timeTaken = 15;
+        if (questionStartTimeObj) {
+            timeTaken = Math.floor((new Date() - questionStartTimeObj) / 1000);
+        }
+        const data = new URLSearchParams({
+            'selected_option': option,
+            'time_taken': timeTaken
+        });
+
+        fetch("{% url 'api_submit_buzzer' quiz.id %}", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "X-CSRFToken": "{{ csrf_token }}"
+            },
+            body: data
+        }).then(res => res.json()).then(resData => {
+            if (resData.status === 'ok' || resData.error === 'Already answered') {
+                hasAnswered = true;
+                const statusBox = document.getElementById('status-container');
+                statusBox.className = 'status-banner status-locked';
+                statusBox.innerText = `LOCKED IN: ${option}`;
+                const pad = document.getElementById('buzzer-pad');
+                pad.style.opacity = '0.4';
+                pad.style.pointerEvents = 'none';
+            } else {
+                alert(resData.error);
+            }
+        });
+    }
+
+    setInterval(pollState, 1500);
+    pollState();
+</script>
+{% endblock %}

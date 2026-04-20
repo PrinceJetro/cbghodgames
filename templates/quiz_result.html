@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+{% block title %}Your Result{% endblock %}
+
+{% block extra_head %}
+<style>
+  .result-hero {
+    text-align: center;
+    padding: 48px 0 40px;
+  }
+  .score-circle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    background: radial-gradient(circle, rgba(245,200,66,0.1) 0%, transparent 70%);
+    margin: 0 auto 28px;
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+  .score-big {
+    font-family: var(--font-head);
+    font-size: 3.6rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .score-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .result-hero h1 { margin-bottom: 8px; font-size: 2.6rem; }
+  .result-hero p { color: var(--muted); }
+
+  /* STAT CHIPS */
+  .result-stats {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 28px 0;
+  }
+  .stat-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  .stat-chip .val {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-chip .key {
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* RANK BANNER */
+  .rank-banner {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 28px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 36px;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .rank-big {
+    font-family: var(--font-head);
+    font-size: 3rem;
+    color: var(--gold);
+  }
+
+  /* ANSWERS REVIEW */
+  .review-header {
+    font-family: var(--font-head);
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .answer-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .answer-item.correct { border-left-color: var(--green); }
+  .answer-item.incorrect { border-left-color: var(--red); }
+  .answer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .answer-q {
+    font-size: 0.95rem;
+    font-weight: 500;
+    flex: 1;
+  }
+  .answer-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .answer-detail {
+    font-size: 0.82rem;
+    color: var(--muted);
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .answer-detail span { display: flex; align-items: center; gap: 4px; }
+  .answer-selected { color: var(--blue); }
+  .answer-correct-text { color: var(--green); }
+  .answer-explanation {
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: var(--surface2);
+    border-radius: 6px;
+    font-size: 0.83rem;
+    color: var(--muted);
+    border-left: 2px solid var(--gold-dim);
+  }
+  .answer-explanation::before {
+    content: '💡 ';
+  }
+  .bonus-tag {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--green);
+    background: rgba(62,207,106,0.1);
+    border: 1px solid rgba(62,207,106,0.25);
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+
+  .action-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 36px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-md">
+
+  <!-- HERO SCORE -->
+  <div class="result-hero fade-up">
+    <div class="score-circle">
+      <div class="score-big">{{ attempt.total_score }}</div>
+      <div class="score-label">Total Score</div>
+    </div>
+
+    <h1>{{ result_title }}</h1>
+    <p>{{ result_message }}</p>
+  </div>
+
+  <!-- STATS -->
+  <div class="result-stats fade-up-2">
+    <div class="stat-chip">
+      <div class="val">{{ correct_count }}</div>
+      <div class="key">Correct</div>
+    </div>
+    <div class="stat-chip">
+      <div class="val">{{ total_questions|add:"-"|add:correct_count }}</div>
+      <div class="key">Wrong</div>
+    </div>
+    <div class="stat-chip">
+      <div class="val">{{ attempt.score }}</div>
+      <div class="key">Base Score</div>
+    </div>
+    {% if attempt.speed_bonus_total %}
+    <div class="stat-chip">
+      <div class="val" style="color:var(--green)">+{{ attempt.speed_bonus_total }}</div>
+      <div class="key">Speed Bonus</div>
+    </div>
+    {% endif %}
+  </div>
+
+  <!-- RANK -->
+  <div class="rank-banner fade-up-3">
+    <div>
+      <div class="label" style="margin-bottom:4px;">Your Rank</div>
+      <div class="rank-big">#{{ rank }}</div>
+    </div>
+    <div style="color:var(--muted);font-size:0.9rem;">
+      on the <strong style="color:var(--text)">{{ quiz.title }}</strong> leaderboard
+    </div>
+    <a href="{% url 'leaderboard' %}" class="btn btn-outline">View Full Leaderboard</a>
+  </div>
+
+  <!-- ANSWERS REVIEW -->
+  <div class="fade-up-4">
+    <div class="review-header">
+      📋 <span>Answer Review</span>
+    </div>
+
+    {% for answer in answers %}
+    <div class="answer-item {% if answer.is_correct %}correct{% else %}incorrect{% endif %}">
+      <div class="answer-top">
+        <div>
+          <div class="question-num" style="font-family:var(--font-mono);font-size:0.68rem;color:var(--muted);margin-bottom:4px;">
+            Q{{ forloop.counter }}
+          </div>
+          <div class="answer-q">{{ answer.question.text }}</div>
+        </div>
+        <div class="answer-meta">
+          {% if answer.is_correct %}
+            <span class="badge badge-green">✓ Correct</span>
+          {% else %}
+            <span class="badge badge-red">✗ Wrong</span>
+          {% endif %}
+          {% if answer.speed_bonus > 0 %}
+            <span class="bonus-tag">⚡ +{{ answer.speed_bonus }} speed</span>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="answer-detail">
+        <span>
+          <span class="answer-selected">Your answer: {{ answer.selected_option }}</span>
+        </span>
+        {% if not answer.is_correct %}
+        <span>
+          <span class="answer-correct-text">Correct: {{ answer.question.correct_option }}</span>
+        </span>
+        {% endif %}
+        <span style="color:var(--muted)">⏱ {{ answer.time_taken }}s</span>
+      </div>
+
+      {% if answer.question.explanation %}
+      <div class="answer-explanation">{{ answer.question.explanation }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <!-- ACTIONS -->
+  <div class="action-row">
+    <a href="{% url 'leaderboard' %}" class="btn btn-primary btn-lg">🏆 Leaderboard</a>
+    <a href="{% url 'home' %}" class="btn btn-outline btn-lg">← Back to Home</a>
+  </div>
+
+</div>
+{% endblock %}

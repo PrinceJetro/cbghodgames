@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block title %}Daily Life Quiz{% endblock %}
+
+{% block extra_head %}
+<style>
+  .join-wrap {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .join-box {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+  }
+  .day-emoji {
+    font-size: 4.5rem;
+    display: block;
+    margin-bottom: 16px;
+    animation: fadeUp 0.4s ease;
+  }
+  .join-box h1 { font-size: 3rem; margin-bottom: 6px; }
+  .join-box .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    margin-bottom: 36px;
+  }
+  .name-input-big {
+    width: 100%;
+    background: var(--surface2);
+    border: 2px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    padding: 18px 20px;
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    outline: none;
+    text-align: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    margin-bottom: 16px;
+  }
+  .name-input-big:focus {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(245,200,66,0.12);
+  }
+  .name-input-big::placeholder { color: var(--muted); }
+  .join-or {
+    margin: 24px 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .join-or::before, .join-or::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .join-rules {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 24px;
+  }
+  .join-rules p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .join-rules p::before { flex-shrink: 0; }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="join-wrap">
+  <div class="join-box fade-up">
+
+    {% if daily_event %}
+      <span class="day-emoji">{{ daily_event.emoji|default:"📱" }}</span>
+      <div class="label" style="margin-bottom:10px;">Day {{ daily_event.day_number }} · Daily Life Quiz</div>
+      <h1>{{ daily_event.title|upper }}</h1>
+      <p class="subtitle">
+        Enter your name to join the quiz. No account needed.<br>
+        Questions are based on today's HOD Games matches!
+      </p>
+    {% else %}
+      <span class="day-emoji">📱</span>
+      <h1>DAILY QUIZ</h1>
+      <p class="subtitle">Enter your name to jump in. No account needed.</p>
+    {% endif %}
+
+    <div class="join-rules">
+      <p>⏱ Each question is timed — answer fast for bonus points</p>
+      <p>📊 Your score appears on the live leaderboard instantly</p>
+      <p>🔒 One attempt per device per day</p>
+    </div>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <input
+        type="text"
+        name="display_name"
+        class="name-input-big"
+        placeholder="Type your name here..."
+        maxlength="60"
+        required
+        autofocus
+      />
+      {% if messages %}
+        {% for msg in messages %}
+          <div class="alert alert-{{ msg.tags }}" style="margin-bottom:12px;text-align:left;">{{ msg }}</div>
+        {% endfor %}
+      {% endif %}
+      <button type="submit" class="btn btn-primary btn-full btn-lg">
+        Join the Quiz →
+      </button>
+    </form>
+
+    <div class="join-or">or</div>
+
+    <a href="{% url 'login' %}" class="btn btn-outline btn-full">
+      Login with your account
+    </a>
+
+  </div>
+</div>
+{% endblock %}

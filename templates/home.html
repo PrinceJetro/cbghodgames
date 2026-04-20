@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+
+{% block extra_head %}
+<style>
+  .hero {
+    padding: 80px 0 60px;
+    text-align: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 9vw, 6rem);
+    background: linear-gradient(135deg, #f5c842 0%, #fff 55%, #f5c842 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    line-height: 0.95;
+  }
+  .hero-sub {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 520px;
+    margin: 0 auto 40px;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .powered-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    padding: 6px 16px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .powered-badge span { color: var(--gold); font-weight: 700; }
+
+  /* ── STAGES ─────────────────────────────────── */
+  .stages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin: 60px 0;
+    background: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .stage-card {
+    background: var(--surface);
+    padding: 32px 24px;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .stage-card:hover { background: var(--surface2); }
+  .stage-num {
+    font-family: var(--font-head);
+    font-size: 4rem;
+    color: rgba(245,200,66,0.12);
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    line-height: 1;
+  }
+  .stage-icon { font-size: 2rem; margin-bottom: 12px; }
+  .stage-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+  .stage-card p { font-size: 0.88rem; color: var(--muted); line-height: 1.6; }
+  .stage-card ul {
+    list-style: none;
+    margin-top: 12px;
+  }
+  .stage-card ul li {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding: 3px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .stage-card ul li::before { content: '→'; color: var(--gold); flex-shrink: 0; }
+
+  /* ── DAILY QUIZ BANNER ──────────────────────── */
+  .daily-banner {
+    background: linear-gradient(135deg, rgba(245,200,66,0.08) 0%, var(--surface) 100%);
+    border: 1px solid rgba(245,200,66,0.25);
+    border-radius: var(--radius);
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  .daily-banner-text .label { margin-bottom: 8px; }
+  .daily-banner-text h2 { font-size: 2rem; margin-bottom: 4px; }
+  .daily-banner-text p { color: var(--muted); font-size: 0.9rem; }
+
+  /* ── STAT ROW ──────────────────────────────── */
+  .stat-row {
+    display: flex;
+    gap: 2px;
+    background: var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 40px 0;
+  }
+  .stat-item {
+    flex: 1;
+    background: var(--surface);
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: var(--font-head);
+    font-size: 2.6rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-family: var(--font-mono);
+  }
+
+  @media (max-width: 640px) {
+    .stages { grid-template-columns: 1fr; }
+    .stat-row { flex-direction: column; gap: 1px; }
+    .daily-banner { flex-direction: column; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="hero fade-up">
+  <div class="powered-badge">⚡ Powered by <span>Tutorial Haven</span></div>
+  <div class="hero-eyebrow">CBG · HOD Games 2026 · Brain Battle</div>
+  <h1>BRAIN<br>BATTLE</h1>
+  <p class="hero-sub">
+    The ultimate intellectual showdown for CBG students.
+    Qualify. Form teams. Conquer the Grand Finals.
+  </p>
+  <div class="hero-actions">
+    {% if not user.is_authenticated %}
+      <a href="{% url 'register' %}" class="btn btn-primary btn-lg">Enter the Arena →</a>
+      <a href="{% url 'daily_quiz' %}" class="btn btn-outline btn-lg">📱 Daily Quiz</a>
+    {% else %}
+      <a href="{% url 'qualifiers' %}" class="btn btn-primary btn-lg">My Qualifier →</a>
+      <a href="{% url 'daily_quiz' %}" class="btn btn-outline btn-lg">📱 Daily Quiz</a>
+    {% endif %}
+  </div>
+</section>
+
+<!-- DAILY QUIZ LIVE BANNER -->
+{% if daily_event %}
+<div class="daily-banner fade-up-2">
+  <div class="daily-banner-text">
+    <div class="label">🔴 Live Now</div>
+    <h2>{{ daily_event.emoji }} {{ daily_event.title }}</h2>
+    <p>Today's Daily Life Quiz is open — no account needed to play!</p>
+  </div>
+  <a href="{% url 'daily_quiz' %}" class="btn btn-primary btn-lg">Play Now →</a>
+</div>
+{% endif %}
+
+<!-- STATS -->
+<div class="stat-row fade-up-3">
+  <div class="stat-item">
+    <div class="stat-num">4</div>
+    <div class="stat-label">Levels</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">20</div>
+    <div class="stat-label">Finalists</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Teams</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">5</div>
+    <div class="stat-label">Final Rounds</div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="fade-up-4">
+  <div class="label" style="text-align:center;margin-bottom:12px;">How It Works</div>
+  <h2 style="text-align:center;margin-bottom:32px;">Three Stages to Glory</h2>
+
+  <div class="stages">
+    <div class="stage-card">
+      <div class="stage-num">01</div>
+      <div class="stage-icon">🎯</div>
+      <h3>Level Qualifiers</h3>
+      <p>Each level battles internally. Only the sharpest minds advance.</p>
+      <ul>
+        <li>100L, 200L, 300L, 400L separate quizzes</li>
+        <li>Top 5 per level qualify</li>
+        <li>20 finalists total</li>
+        <li>Timed, randomized questions</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">02</div>
+      <div class="stage-icon">🎲</div>
+      <h3>Team Formation</h3>
+      <p>Finalists are shuffled into mixed-level squads for the ultimate test.</p>
+      <ul>
+        <li>5 balanced teams formed</li>
+        <li>1 student from each level per team</li>
+        <li>Live dramatic team draw</li>
+        <li>Strategy meets teamwork</li>
+      </ul>
+    </div>
+    <div class="stage-card">
+      <div class="stage-num">03</div>
+      <div class="stage-icon">⚔️</div>
+      <h3>Grand Finals</h3>
+      <p>5 rounds of live competition on the big stage. May the best team win.</p>
+      <ul>
+        <li>General Biology Round</li>
+        <li>CBG Department Trivia</li>
+        <li>Speed Round + Image Round</li>
+        <li>Live leaderboard + MVP award</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}
