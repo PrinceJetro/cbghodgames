@@ -11,15 +11,6 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
-import copy
-from django.template import context
-
-# Monkeypatch to fix 'super' object has no attribute 'dicts' on Python 3.14
-def _patched_copy(self):
-    duplicate = self.__class__.__new__(self.__class__)
-    duplicate.dicts = self.dicts[:]
-    return duplicate
-context.BaseContext.__copy__ = _patched_copy
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -88,23 +79,23 @@ WSGI_APPLICATION = 'brainbattle.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
 # DATABASES = {
-#      'default': {
-#          'ENGINE': 'django.db.backends.postgresql',
-#          'NAME': 'postgres',
-#          'HOST' : "aws-1-eu-north-1.pooler.supabase.com",
-#          "PORT" : "6543",
-#          'USER' : "postgres.esucgagleqfveepkstjk",
-#          'PASSWORD' : "gh7pYc72baDNyFyR",
-#      }
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
 # }
+
+DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql',
+         'NAME': 'postgres',
+         'HOST' : "aws-1-eu-north-1.pooler.supabase.com",
+         "PORT" : "6543",
+         'USER' : "postgres.esucgagleqfveepkstjk",
+         'PASSWORD' : "gh7pYc72baDNyFyR",
+     }
+}
 
 
 
