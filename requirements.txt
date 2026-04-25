@@ -1,5 +1,5 @@
 # --- Core Django & Database ---
-Django==5.0.3
+Django==5.0.10
 psycopg2-binary==2.9.10
 whitenoise
 asgiref==3.8.1
