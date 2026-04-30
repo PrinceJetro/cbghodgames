@@ -725,15 +725,22 @@ def api_submit_buzzer(request, quiz_id):
     if not selected:
         return JsonResponse({'error': 'No option selected'}, status=400)
         
-    # Get or create attempt for the team/participant.
+    # Get or create attempt for the participant.
     attempt, created = Attempt.objects.get_or_create(
         participant=participant,
         quiz=quiz
     )
     
-    # Check if they already answered THIS question
+    # Check if they individually already answered THIS question (failsafe)
     if Answer.objects.filter(attempt=attempt, question=quiz.current_question).exists():
         return JsonResponse({'error': 'Already answered'}, status=400)
+
+    # NEW SECURITY: Prevent another member of the SAME TEAM from brute-forcing
+    membership = TeamMember.objects.filter(participant=participant).first()
+    if membership:
+        team_members = membership.team.members.values_list('participant', flat=True)
+        if Answer.objects.filter(attempt__participant__in=team_members, question=quiz.current_question).exists():
+            return JsonResponse({'error': 'Your team already answered!'}, status=400)
         
     is_correct = selected.upper() == quiz.current_question.correct_option.upper()
     bonus = 0
@@ -764,7 +771,6 @@ def api_submit_buzzer(request, quiz_id):
             attempt.save()
             
             # Recalculate team score immediately
-            membership = TeamMember.objects.filter(participant=participant).first()
             if membership:
                 membership.team.recalculate_score()
                 
@@ -798,6 +804,11 @@ def api_submit_buzzer(request, quiz_id):
             speed_bonus=0
         )
         attempt.save()
+        
+        # FIXED: recalculate team score immediately so negative points show
+        if membership:
+            membership.team.recalculate_score()
+            
         return JsonResponse({'status': 'ok'})
 
 
