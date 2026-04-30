@@ -289,12 +289,17 @@ def quiz_result(request, attempt_id):
         guest_id = request.session.get('guest_id')
         attempt = get_object_or_404(Attempt, id=attempt_id, guest_id=guest_id)
 
+    quiz = attempt.quiz
     answers = attempt.answers.select_related('question').all()
-    total_questions = answers.count()
+    
+    total_questions = quiz.questions.count()
+    # Fallback to avoid 0 total_possible if a quiz has no questions
+    if total_questions == 0:
+        total_questions = quiz.total_questions or 1
+
     correct_count = answers.filter(is_correct=True).count()
 
     # Ranking context
-    quiz = attempt.quiz
     rank = Leaderboard.objects.filter(
         quiz=quiz,
         score__gt=attempt.score
@@ -304,10 +309,10 @@ def quiz_result(request, attempt_id):
     outstanding_threshold = total_possible * 0.8
     great_threshold = total_possible * 0.5
 
-    if attempt.total_score >= outstanding_threshold:
+    if total_possible > 0 and attempt.total_score >= outstanding_threshold:
         result_title = 'OUTSTANDING! 🏆'
         result_message = 'You absolutely crushed it. Top-tier performance.'
-    elif attempt.total_score >= great_threshold:
+    elif total_possible > 0 and attempt.total_score >= great_threshold:
         result_title = 'GREAT EFFORT! 💪'
         result_message = 'Solid performance. Keep pushing!'
     else:

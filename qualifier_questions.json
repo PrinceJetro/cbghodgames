@@ -1,0 +1,1272 @@
+{
+  "quizzes": [
+    {
+      "title": "100 Level Qualifier - Biology & General Knowledge",
+      "quiz_type": "qualifier",
+      "round_type": "general",
+      "level": "100",
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 10,
+      "total_questions": 30,
+      "points_correct": 10,
+      "points_wrong": 5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "What software company is headquartered in Redmond, Washington?",
+          "option_a": "Apple",
+          "option_b": "Google",
+          "option_c": "Microsoft",
+          "option_d": "Amazon",
+          "correct_option": "C",
+          "explanation": "Microsoft was founded by Bill Gates and Paul Allen in 1975, with headquarters in Redmond, Washington.",
+          "order": 1
+        },
+        {
+          "text": "What is a word, phrase, or number that reads the same backward as forward?",
+          "option_a": "Anagram",
+          "option_b": "Palindrome",
+          "option_c": "Homonym",
+          "option_d": "Synonym",
+          "correct_option": "B",
+          "explanation": "A palindrome reads the same forwards and backwards, like 'radar' or 'level'.",
+          "order": 2
+        },
+        {
+          "text": "What is the world's largest retailer as of 2026?",
+          "option_a": "Amazon",
+          "option_b": "Costco",
+          "option_c": "Target",
+          "option_d": "Walmart",
+          "correct_option": "D",
+          "explanation": "Walmart remains the world's largest retailer by revenue, with over 10,500 stores worldwide.",
+          "order": 3
+        },
+        {
+          "text": "Which day of the week does the Jewish Sabbath begin?",
+          "option_a": "Saturday",
+          "option_b": "Sunday",
+          "option_c": "Friday",
+          "option_d": "Thursday",
+          "correct_option": "C",
+          "explanation": "The Jewish Sabbath (Shabbat) begins at sunset on Friday and ends at nightfall on Saturday.",
+          "order": 4
+        },
+        {
+          "text": "What phone company produced the 3310?",
+          "option_a": "Samsung",
+          "option_b": "Motorola",
+          "option_c": "Nokia",
+          "option_d": "Ericsson",
+          "correct_option": "C",
+          "explanation": "The Nokia 3310 was released in 2000 and became famous for its durability and long battery life.",
+          "order": 5
+        },
+        {
+          "text": "What company was initially known as 'Blue Ribbon Sports'?",
+          "option_a": "Adidas",
+          "option_b": "Nike",
+          "option_c": "Puma",
+          "option_d": "Reebok",
+          "correct_option": "B",
+          "explanation": "Blue Ribbon Sports was founded in 1964 by Bill Bowerman and Phil Knight, becoming Nike in 1971.",
+          "order": 6
+        },
+        {
+          "text": "How many elements are in the periodic table?",
+          "option_a": "98",
+          "option_b": "108",
+          "option_c": "118",
+          "option_d": "128",
+          "correct_option": "C",
+          "explanation": "There are 118 confirmed elements in the periodic table, from Hydrogen (1) to Oganesson (118).",
+          "order": 7
+        },
+        {
+          "text": "Which planet is closest to the sun?",
+          "option_a": "Venus",
+          "option_b": "Earth",
+          "option_c": "Mars",
+          "option_d": "Mercury",
+          "correct_option": "D",
+          "explanation": "Mercury is the closest planet to the Sun, orbiting at an average distance of 58 million kilometers.",
+          "order": 8
+        },
+        {
+          "text": "How many bones do we have in an ear?",
+          "option_a": "2",
+          "option_b": "3",
+          "option_c": "4",
+          "option_d": "5",
+          "correct_option": "B",
+          "explanation": "The middle ear contains three tiny bones: the hammer (malleus), anvil (incus), and stirrup (stapes).",
+          "order": 9
+        },
+        {
+          "text": "What is the chemical element with the symbol Fe?",
+          "option_a": "Gold",
+          "option_b": "Silver",
+          "option_c": "Iron",
+          "option_d": "Copper",
+          "correct_option": "C",
+          "explanation": "Fe comes from the Latin word 'ferrum', meaning iron.",
+          "order": 10
+        },
+        {
+          "text": "What is the smallest unit of matter?",
+          "option_a": "Molecule",
+          "option_b": "Atom",
+          "option_c": "Proton",
+          "option_d": "Electron",
+          "correct_option": "B",
+          "explanation": "The atom is the smallest unit of matter that retains the properties of an element.",
+          "order": 11
+        },
+        {
+          "text": "What is the process by which a liquid changes into a gas?",
+          "option_a": "Condensation",
+          "option_b": "Evaporation",
+          "option_c": "Sublimation",
+          "option_d": "Precipitation",
+          "correct_option": "B",
+          "explanation": "Evaporation occurs when liquid molecules gain enough energy to become gas.",
+          "order": 12
+        },
+        {
+          "text": "What was the name of the crime boss who was head of the feared Chicago Outfit?",
+          "option_a": "John Gotti",
+          "option_b": "Lucky Luciano",
+          "option_c": "Al Capone",
+          "option_d": "Meyer Lansky",
+          "correct_option": "C",
+          "explanation": "Al Capone ran the Chicago Outfit during the Prohibition era in the 1920s.",
+          "order": 13
+        },
+        {
+          "text": "What Renaissance artist is buried in Rome's Pantheon?",
+          "option_a": "Leonardo da Vinci",
+          "option_b": "Michelangelo",
+          "option_c": "Raphael",
+          "option_d": "Donatello",
+          "correct_option": "C",
+          "explanation": "Raphael, the famous Renaissance painter, is buried in the Pantheon in Rome.",
+          "order": 14
+        },
+        {
+          "text": "In what year did World War II end?",
+          "option_a": "1944",
+          "option_b": "1945",
+          "option_c": "1946",
+          "option_d": "1943",
+          "correct_option": "B",
+          "explanation": "WWII ended in 1945 with Germany's surrender in May and Japan's surrender in September.",
+          "order": 15
+        },
+        {
+          "text": "Which famous document begins with 'We hold these truths to be self-evident'?",
+          "option_a": "The Constitution",
+          "option_b": "The Magna Carta",
+          "option_c": "The Declaration of Independence",
+          "option_d": "The Bill of Rights",
+          "correct_option": "C",
+          "explanation": "The Declaration of Independence begins with these famous words, adopted on July 4, 1776.",
+          "order": 16
+        },
+        {
+          "text": "Who was the first woman to win a Nobel Prize?",
+          "option_a": "Rosalind Franklin",
+          "option_b": "Marie Curie",
+          "option_c": "Lise Meitner",
+          "option_d": "Barbara McClintock",
+          "correct_option": "B",
+          "explanation": "Marie Curie won the Nobel Prize in Physics in 1903, sharing it with her husband Pierre.",
+          "order": 17
+        },
+        {
+          "text": "What was the code name for the Allied invasion of Normandy?",
+          "option_a": "Operation Desert Storm",
+          "option_b": "Operation Overlord",
+          "option_c": "Operation Barbarossa",
+          "option_d": "Operation Torch",
+          "correct_option": "B",
+          "explanation": "Operation Overlord was the codename for the D-Day invasion on June 6, 1944.",
+          "order": 18
+        },
+        {
+          "text": "Which country has won the most World Cups?",
+          "option_a": "Germany",
+          "option_b": "Italy",
+          "option_c": "Argentina",
+          "option_d": "Brazil",
+          "correct_option": "D",
+          "explanation": "Brazil has won 5 World Cups (1958, 1962, 1970, 1994, 2002).",
+          "order": 19
+        },
+        {
+          "text": "What does FIFA stand for in English?",
+          "option_a": "Football International Federation Association",
+          "option_b": "International Federation of Association Football",
+          "option_c": "Federation of International Football Associations",
+          "option_d": "Football's International Federation Authority",
+          "correct_option": "B",
+          "explanation": "FIFA stands for Fédération Internationale de Football Association, the governing body of world football.",
+          "order": 20
+        },
+        {
+          "text": "Simone Biles is famous for her skill in what sport?",
+          "option_a": "Swimming",
+          "option_b": "Gymnastics",
+          "option_c": "Track and Field",
+          "option_d": "Figure Skating",
+          "correct_option": "B",
+          "explanation": "Simone Biles is considered one of the greatest gymnasts of all time with 32 Olympic and World Championship medals.",
+          "order": 21
+        },
+        {
+          "text": "What was the first name of Argentinian soccer star Maradona?",
+          "option_a": "Lionel",
+          "option_b": "Diego",
+          "option_c": "Pablo",
+          "option_d": "Carlos",
+          "correct_option": "B",
+          "explanation": "Diego Maradona is considered one of the greatest footballers in history.",
+          "order": 22
+        },
+        {
+          "text": "What is the national sport of Japan?",
+          "option_a": "Baseball",
+          "option_b": "Judo",
+          "option_c": "Sumo wrestling",
+          "option_d": "Karate",
+          "correct_option": "C",
+          "explanation": "Sumo wrestling is Japan's national sport, with a history spanning over 1,500 years.",
+          "order": 23
+        },
+        {
+          "text": "What is a group of crows called?",
+          "option_a": "A flock",
+          "option_b": "A murder",
+          "option_c": "A conspiracy",
+          "option_d": "A cauldron",
+          "correct_option": "B",
+          "explanation": "A group of crows is called a 'murder' of crows, a term from medieval folklore.",
+          "order": 24
+        },
+        {
+          "text": "What is the only mammal capable of true flight?",
+          "option_a": "Flying squirrel",
+          "option_b": "Bat",
+          "option_c": "Sugar glider",
+          "option_d": "Colugo",
+          "correct_option": "B",
+          "explanation": "Bats are the only mammals that can truly fly, using their wing membranes stretched between elongated fingers.",
+          "order": 25
+        },
+        {
+          "text": "What is the term for the study of birds?",
+          "option_a": "Entomology",
+          "option_b": "Herpetology",
+          "option_c": "Ornithology",
+          "option_d": "Mammalogy",
+          "correct_option": "C",
+          "explanation": "Ornithology comes from Greek 'ornis' meaning bird and 'logos' meaning study.",
+          "order": 26
+        },
+        {
+          "text": "Where is the Louvre Museum located?",
+          "option_a": "London",
+          "option_b": "Rome",
+          "option_c": "Paris",
+          "option_d": "Berlin",
+          "correct_option": "C",
+          "explanation": "The Louvre Museum is in Paris, France, and is the world's largest art museum.",
+          "order": 27
+        },
+        {
+          "text": "Who is the singer known for the hit 'Bad Guy'?",
+          "option_a": "Taylor Swift",
+          "option_b": "Ariana Grande",
+          "option_c": "Billie Eilish",
+          "option_d": "Dua Lipa",
+          "correct_option": "C",
+          "explanation": "Billie Eilish released 'Bad Guy' in 2019, which became her first number-one single.",
+          "order": 28
+        },
+        {
+          "text": "What art movement is Pablo Picasso associated with?",
+          "option_a": "Impressionism",
+          "option_b": "Surrealism",
+          "option_c": "Cubism",
+          "option_d": "Expressionism",
+          "correct_option": "C",
+          "explanation": "Picasso co-founded Cubism, which revolutionized European painting and sculpture.",
+          "order": 29
+        },
+        {
+          "text": "What musical instrument has 88 keys?",
+          "option_a": "Harpsichord",
+          "option_b": "Piano",
+          "option_c": "Organ",
+          "option_d": "Accordion",
+          "correct_option": "B",
+          "explanation": "A standard piano has 88 keys: 52 white keys and 36 black keys.",
+          "order": 30
+        }
+      ]
+    },
+    {
+      "title": "200 Level Qualifier - Intermediate Challenge",
+      "quiz_type": "qualifier",
+      "round_type": "general",
+      "level": "200",
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 10,
+      "total_questions": 30,
+      "points_correct": 10,
+      "points_wrong": 5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "Which country has the highest life expectancy as of 2026?",
+          "option_a": "Japan",
+          "option_b": "Switzerland",
+          "option_c": "Monaco",
+          "option_d": "Singapore",
+          "correct_option": "C",
+          "explanation": "Monaco has the highest life expectancy at around 89 years due to excellent healthcare and lifestyle.",
+          "order": 1
+        },
+        {
+          "text": "What is the most common surname in the United States?",
+          "option_a": "Johnson",
+          "option_b": "Williams",
+          "option_c": "Brown",
+          "option_d": "Smith",
+          "correct_option": "D",
+          "explanation": "Smith is the most common surname in the U.S., with over 2.4 million people bearing the name.",
+          "order": 2
+        },
+        {
+          "text": "What art form is described as 'decorative handwriting or handwritten lettering'?",
+          "option_a": "Typography",
+          "option_b": "Graffiti",
+          "option_c": "Calligraphy",
+          "option_d": "Illumination",
+          "correct_option": "C",
+          "explanation": "Calligraphy is the art of beautiful handwriting, often used for formal documents and art.",
+          "order": 3
+        },
+        {
+          "text": "What is acrophobia a fear of?",
+          "option_a": "Spiders",
+          "option_b": "Heights",
+          "option_c": "Enclosed spaces",
+          "option_d": "Water",
+          "correct_option": "B",
+          "explanation": "Acrophobia is an extreme fear of heights, from Greek 'acron' (peak) and 'phobos' (fear).",
+          "order": 4
+        },
+        {
+          "text": "What is the name of the Chinese philosophical system that emphasizes harmony with nature?",
+          "option_a": "Confucianism",
+          "option_b": "Taoism",
+          "option_c": "Legalism",
+          "option_d": "Buddhism",
+          "correct_option": "B",
+          "explanation": "Taoism, founded by Lao Tzu, emphasizes living in harmony with the Tao (natural order).",
+          "order": 5
+        },
+        {
+          "text": "What is the 4th letter of the Greek alphabet?",
+          "option_a": "Gamma",
+          "option_b": "Beta",
+          "option_c": "Epsilon",
+          "option_d": "Delta",
+          "correct_option": "D",
+          "explanation": "Delta is the fourth letter of the Greek alphabet, represented as Δ (capital) or δ (lowercase).",
+          "order": 6
+        },
+        {
+          "text": "How many dots appear on a pair of dice?",
+          "option_a": "36",
+          "option_b": "40",
+          "option_c": "42",
+          "option_d": "44",
+          "correct_option": "C",
+          "explanation": "Each die has 21 dots (1+2+3+4+5+6 = 21), so two dice total 42 dots.",
+          "order": 7
+        },
+        {
+          "text": "Which planet has the most moons?",
+          "option_a": "Jupiter",
+          "option_b": "Uranus",
+          "option_c": "Saturn",
+          "option_d": "Neptune",
+          "correct_option": "C",
+          "explanation": "Saturn has 146 confirmed moons, the most of any planet, including Titan and Enceladus.",
+          "order": 8
+        },
+        {
+          "text": "Where is the strongest human muscle located?",
+          "option_a": "Thigh",
+          "option_b": "Jaw",
+          "option_c": "Heart",
+          "option_d": "Back",
+          "correct_option": "B",
+          "explanation": "The masseter muscle in the jaw can apply up to 200 pounds of force on the molars.",
+          "order": 9
+        },
+        {
+          "text": "Which is the only body part that is fully grown from birth?",
+          "option_a": "Ears",
+          "option_b": "Feet",
+          "option_c": "Eyes",
+          "option_d": "Hands",
+          "correct_option": "C",
+          "explanation": "Eyes are nearly full size at birth, only growing slightly during childhood to reach adult size.",
+          "order": 10
+        },
+        {
+          "text": "What is the outermost layer of the Earth's atmosphere called?",
+          "option_a": "Thermosphere",
+          "option_b": "Exosphere",
+          "option_c": "Mesosphere",
+          "option_d": "Stratosphere",
+          "correct_option": "B",
+          "explanation": "The exosphere is the outermost atmospheric layer, extending from 700 km to 10,000 km above Earth.",
+          "order": 11
+        },
+        {
+          "text": "What is the process by which plants convert sunlight to energy?",
+          "option_a": "Respiration",
+          "option_b": "Photosynthesis",
+          "option_c": "Transpiration",
+          "option_d": "Fermentation",
+          "correct_option": "B",
+          "explanation": "Photosynthesis converts light energy into chemical energy stored in glucose.",
+          "order": 12
+        },
+        {
+          "text": "What scientific theory proposed that Earth revolves around the sun?",
+          "option_a": "Geocentrism",
+          "option_b": "Heliocentrism",
+          "option_c": "Big Bang Theory",
+          "option_d": "Theory of Relativity",
+          "correct_option": "B",
+          "explanation": "Heliocentrism, proposed by Copernicus, placed the sun at the center of the solar system.",
+          "order": 13
+        },
+        {
+          "text": "What year was the United Nations established?",
+          "option_a": "1944",
+          "option_b": "1945",
+          "option_c": "1946",
+          "option_d": "1947",
+          "correct_option": "B",
+          "explanation": "The UN was established on October 24, 1945, after WWII, with 51 founding members.",
+          "order": 14
+        },
+        {
+          "text": "Who was the last Tsar of Russia?",
+          "option_a": "Alexander III",
+          "option_b": "Peter the Great",
+          "option_c": "Nicholas I",
+          "option_d": "Nicholas II",
+          "correct_option": "D",
+          "explanation": "Nicholas II ruled from 1894 until his abdication in 1917 during the Russian Revolution.",
+          "order": 15
+        },
+        {
+          "text": "Roald Amundsen was the first man to reach the South Pole, but where was he from?",
+          "option_a": "Sweden",
+          "option_b": "Denmark",
+          "option_c": "Norway",
+          "option_d": "Finland",
+          "correct_option": "C",
+          "explanation": "Roald Amundsen was Norwegian, reaching the South Pole on December 14, 1911.",
+          "order": 16
+        },
+        {
+          "text": "Who famously crossed the Alps with elephants on the way to war with the Romans?",
+          "option_a": "Julius Caesar",
+          "option_b": "Hannibal",
+          "option_c": "Alexander the Great",
+          "option_d": "Scipio Africanus",
+          "correct_option": "B",
+          "explanation": "Hannibal crossed the Alps in 218 BCE with 37 war elephants during the Second Punic War.",
+          "order": 17
+        },
+        {
+          "text": "The Parthenon Marbles are controversially located in what museum?",
+          "option_a": "The Louvre",
+          "option_b": "The British Museum",
+          "option_c": "The Vatican Museums",
+          "option_d": "The Met",
+          "correct_option": "B",
+          "explanation": "The Parthenon Marbles have been in the British Museum since being removed by Lord Elgin in 1801.",
+          "order": 18
+        },
+        {
+          "text": "What event marked the end of the Roman Empire in the West?",
+          "option_a": "The death of Julius Caesar",
+          "option_b": "The fall of Constantinople",
+          "option_c": "The fall of Rome",
+          "option_d": "The Great Fire of Rome",
+          "correct_option": "C",
+          "explanation": "The fall of Rome in 476 CE marked the end of the Western Roman Empire.",
+          "order": 19
+        },
+        {
+          "text": "Which ancient Chinese dynasty is often considered the 'golden age' of Chinese civilization?",
+          "option_a": "Qin Dynasty",
+          "option_b": "Tang Dynasty",
+          "option_c": "Han Dynasty",
+          "option_d": "Song Dynasty",
+          "correct_option": "C",
+          "explanation": "The Han Dynasty (206 BCE-220 CE) is considered China's golden age of cultural and technological advancement.",
+          "order": 20
+        },
+        {
+          "text": "What Renaissance artist painted the Sistine Chapel ceiling?",
+          "option_a": "Leonardo da Vinci",
+          "option_b": "Raphael",
+          "option_c": "Michelangelo",
+          "option_d": "Botticelli",
+          "correct_option": "C",
+          "explanation": "Michelangelo painted the Sistine Chapel ceiling between 1508 and 1512.",
+          "order": 21
+        },
+        {
+          "text": "What was the name of the German military strategy of rapid, overwhelming attacks?",
+          "option_a": "Sitzkrieg",
+          "option_b": "Anschluss",
+          "option_c": "Blitzkrieg",
+          "option_d": "Lebensraum",
+          "correct_option": "C",
+          "explanation": "Blitzkrieg (lightning war) used fast, coordinated attacks to overwhelm defenses.",
+          "order": 22
+        },
+        {
+          "text": "What was the primary cause of the Great Irish Famine?",
+          "option_a": "Drought",
+          "option_b": "Potato blight",
+          "option_c": "Flooding",
+          "option_d": "Locusts",
+          "correct_option": "B",
+          "explanation": "Phytophthora infestans (potato blight) destroyed potato crops, leading to the famine from 1845-1852.",
+          "order": 23
+        },
+        {
+          "text": "What was the name of the peace treaty that ended World War I?",
+          "option_a": "Treaty of Paris",
+          "option_b": "Treaty of Versailles",
+          "option_c": "Treaty of Ghent",
+          "option_d": "Treaty of Tordesillas",
+          "correct_option": "B",
+          "explanation": "The Treaty of Versailles was signed on June 28, 1919, formally ending WWI.",
+          "order": 24
+        },
+        {
+          "text": "In what city is the NFL Hall of Fame located?",
+          "option_a": "Cleveland, Ohio",
+          "option_b": "Canton, Ohio",
+          "option_c": "Chicago, Illinois",
+          "option_d": "Pittsburgh, Pennsylvania",
+          "correct_option": "B",
+          "explanation": "The Pro Football Hall of Fame is in Canton, Ohio, where the NFL was founded in 1920.",
+          "order": 25
+        },
+        {
+          "text": "Where does the Tour de France finish each year?",
+          "option_a": "Arc de Triomphe",
+          "option_b": "Eiffel Tower",
+          "option_c": "Champs-Élysées",
+          "option_d": "Notre-Dame",
+          "correct_option": "C",
+          "explanation": "The Tour de France traditionally finishes on the Avenue des Champs-Élysées in Paris.",
+          "order": 26
+        },
+        {
+          "text": "What do you call it when a bowler makes three strikes in a row?",
+          "option_a": "Hat trick",
+          "option_b": "Turkey",
+          "option_c": "Three-peat",
+          "option_d": "Triple strike",
+          "correct_option": "B",
+          "explanation": "Three consecutive strikes in bowling is called a 'turkey', dating from tournament prizes in the 1800s.",
+          "order": 27
+        },
+        {
+          "text": "What height is a regulation NBA basket?",
+          "option_a": "9 feet",
+          "option_b": "9.5 feet",
+          "option_c": "10 feet",
+          "option_d": "10.5 feet",
+          "correct_option": "C",
+          "explanation": "NBA rims are exactly 10 feet (3.05 meters) from the playing floor.",
+          "order": 28
+        },
+        {
+          "text": "What sporting event has a strict dress code of all white?",
+          "option_a": "The Masters",
+          "option_b": "Wimbledon",
+          "option_c": "The Kentucky Derby",
+          "option_d": "The Olympics",
+          "correct_option": "B",
+          "explanation": "Wimbledon requires players to wear almost entirely white, a tradition since 1877.",
+          "order": 29
+        },
+        {
+          "text": "What is the world's fastest bird?",
+          "option_a": "Golden eagle",
+          "option_b": "Peregrine falcon",
+          "option_c": "White-throated needletail",
+          "option_d": "Frigatebird",
+          "correct_option": "B",
+          "explanation": "The Peregrine falcon reaches speeds over 240 mph (386 km/h) during its hunting dive (stoop).",
+          "order": 30
+        }
+      ]
+    },
+    {
+      "title": "300 Level Qualifier - Advanced Knowledge",
+      "quiz_type": "qualifier",
+      "round_type": "general",
+      "level": "300",
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 10,
+      "total_questions": 30,
+      "points_correct": 10,
+      "points_wrong": 5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "Who was the Ancient Greek God of the Sun?",
+          "option_a": "Zeus",
+          "option_b": "Ares",
+          "option_c": "Apollo",
+          "option_d": "Hermes",
+          "correct_option": "C",
+          "explanation": "Apollo was the god of the sun, music, poetry, and prophecy in Greek mythology.",
+          "order": 1
+        },
+        {
+          "text": "Aureolin is a shade of what color?",
+          "option_a": "Red",
+          "option_b": "Yellow",
+          "option_c": "Blue",
+          "option_d": "Green",
+          "correct_option": "B",
+          "explanation": "Aureolin is a vivid yellow pigment, also known as cobalt yellow.",
+          "order": 2
+        },
+        {
+          "text": "How many faces does a Dodecahedron have?",
+          "option_a": "10",
+          "option_b": "12",
+          "option_c": "14",
+          "option_d": "16",
+          "correct_option": "B",
+          "explanation": "A dodecahedron has 12 regular pentagonal faces, 20 vertices, and 30 edges.",
+          "order": 3
+        },
+        {
+          "text": "How many minutes are in a full week?",
+          "option_a": "8,640",
+          "option_b": "10,080",
+          "option_c": "12,600",
+          "option_d": "14,400",
+          "correct_option": "B",
+          "explanation": "7 days × 24 hours × 60 minutes = 10,080 minutes in a week.",
+          "order": 4
+        },
+        {
+          "text": "December 26 is known by what name in Ireland?",
+          "option_a": "St. Patrick's Day",
+          "option_b": "Stephen's Day",
+          "option_c": "St. Stephen's Day",
+          "option_d": "Boxing Day",
+          "correct_option": "C",
+          "explanation": "In Ireland, December 26 is St. Stephen's Day, named after the first Christian martyr.",
+          "order": 5
+        },
+        {
+          "text": "What is the scientific theory that explains the origin of the universe?",
+          "option_a": "String Theory",
+          "option_b": "Inflation Theory",
+          "option_c": "The Big Bang Theory",
+          "option_d": "Steady State Theory",
+          "correct_option": "C",
+          "explanation": "The Big Bang Theory explains the universe's origin from a singularity about 13.8 billion years ago.",
+          "order": 6
+        },
+        {
+          "text": "What is the name of the world's first artificial satellite?",
+          "option_a": "Explorer 1",
+          "option_b": "Sputnik 1",
+          "option_c": "Vanguard 1",
+          "option_d": "Luna 1",
+          "correct_option": "B",
+          "explanation": "Sputnik 1 was launched by the Soviet Union on October 4, 1957, starting the Space Age.",
+          "order": 7
+        },
+        {
+          "text": "Who discovered that the Earth revolves around the sun?",
+          "option_a": "Galileo Galilei",
+          "option_b": "Johannes Kepler",
+          "option_c": "Nicolaus Copernicus",
+          "option_d": "Aristarchus",
+          "correct_option": "C",
+          "explanation": "Copernicus proposed the heliocentric model in the 16th century, though Aristarchus suggested it earlier.",
+          "order": 8
+        },
+        {
+          "text": "Which planet in the Milky Way is the hottest?",
+          "option_a": "Mercury",
+          "option_b": "Venus",
+          "option_c": "Earth",
+          "option_d": "Mars",
+          "correct_option": "B",
+          "explanation": "Venus is the hottest planet with surface temperatures up to 471°C (880°F) due to its thick atmosphere.",
+          "order": 9
+        },
+        {
+          "text": "How many hearts does an octopus have?",
+          "option_a": "One",
+          "option_b": "Two",
+          "option_c": "Three",
+          "option_d": "Four",
+          "correct_option": "C",
+          "explanation": "Octopuses have three hearts: two pump blood to the gills, one pumps to the rest of the body.",
+          "order": 10
+        },
+        {
+          "text": "What is a group of pandas known as?",
+          "option_a": "A pack",
+          "option_b": "An embarrassment",
+          "option_c": "A bamboo",
+          "option_d": "A troop",
+          "correct_option": "B",
+          "explanation": "A group of pandas is called an 'embarrassment' due to their awkward, clumsy movements.",
+          "order": 11
+        },
+        {
+          "text": "What animal has the longest tongue?",
+          "option_a": "Giraffe",
+          "option_b": "Anteater",
+          "option_c": "Chameleon",
+          "option_d": "Woodpecker",
+          "correct_option": "A",
+          "explanation": "Giraffes have 18-20 inch (45-50 cm) tongues, the longest of any land animal.",
+          "order": 12
+        },
+        {
+          "text": "What is the loudest animal on Earth?",
+          "option_a": "Blue whale",
+          "option_b": "Sperm whale",
+          "option_c": "Howler monkey",
+          "option_d": "Tiger pistol shrimp",
+          "correct_option": "B",
+          "explanation": "Sperm whale clicks reach 230 decibels, the loudest sound produced by any animal.",
+          "order": 13
+        },
+        {
+          "text": "What animal has the largest brain relative to body size?",
+          "option_a": "Dolphin",
+          "option_b": "Whale",
+          "option_c": "Human",
+          "option_d": "Elephant",
+          "correct_option": "A",
+          "explanation": "Dolphins have the highest brain-to-body ratio after humans, with complex intelligence.",
+          "order": 14
+        },
+        {
+          "text": "What animal had the most powerful bite in the world?",
+          "option_a": "Great white shark",
+          "option_b": "Nile crocodile",
+          "option_c": "Hippopotamus",
+          "option_d": "Saltwater crocodile",
+          "correct_option": "B",
+          "explanation": "The Nile crocodile has a bite force of up to 5,000 PSI, the strongest measured.",
+          "order": 15
+        },
+        {
+          "text": "What animal has the longest lifespan?",
+          "option_a": "Bowhead whale",
+          "option_b": "Galapagos tortoise",
+          "option_c": "The glass sponge",
+          "option_d": "Greenland shark",
+          "correct_option": "C",
+          "explanation": "Glass sponges can live for over 10,000 years - the longest of any animal.",
+          "order": 16
+        },
+        {
+          "text": "Which powerful Mongol ruler conquered a vast empire stretching from Asia to Europe?",
+          "option_a": "Kublai Khan",
+          "option_b": "Genghis Khan",
+          "option_c": "Attila the Hun",
+          "option_d": "Tamerlane",
+          "correct_option": "B",
+          "explanation": "Genghis Khan founded the Mongol Empire, the largest contiguous land empire in history.",
+          "order": 17
+        },
+        {
+          "text": "In what decade was the internet created?",
+          "option_a": "1950s",
+          "option_b": "1960s",
+          "option_c": "1970s",
+          "option_d": "1980s",
+          "correct_option": "B",
+          "explanation": "The internet's precursor, ARPANET, was developed in the 1960s by the U.S. Department of Defense.",
+          "order": 18
+        },
+        {
+          "text": "What was the name of the first computer virus?",
+          "option_a": "Melissa",
+          "option_b": "ILOVEYOU",
+          "option_c": "Creeper",
+          "option_d": "Brain",
+          "correct_option": "C",
+          "explanation": "Creeper was created in 1971 as an experiment, displaying 'I'm the creeper, catch me if you can!'",
+          "order": 19
+        },
+        {
+          "text": "Who was the world's highest-paid athlete in 2023?",
+          "option_a": "Lionel Messi",
+          "option_b": "LeBron James",
+          "option_c": "Cristiano Ronaldo",
+          "option_d": "Kylian Mbappé",
+          "correct_option": "C",
+          "explanation": "Cristiano Ronaldo earned $260 million in 2023, highest among all athletes.",
+          "order": 20
+        },
+        {
+          "text": "Who wrote The Catcher in the Rye?",
+          "option_a": "Ernest Hemingway",
+          "option_b": "F. Scott Fitzgerald",
+          "option_c": "J. D. Salinger",
+          "option_d": "Mark Twain",
+          "correct_option": "C",
+          "explanation": "J.D. Salinger published 'The Catcher in the Rye' in 1951, a classic of modern American literature.",
+          "order": 21
+        },
+        {
+          "text": "Which composer became deaf later in life?",
+          "option_a": "Mozart",
+          "option_b": "Bach",
+          "option_c": "Beethoven",
+          "option_d": "Tchaikovsky",
+          "correct_option": "C",
+          "explanation": "Beethoven began losing his hearing in his late 20s and was completely deaf by his mid-40s.",
+          "order": 22
+        },
+        {
+          "text": "What is the hardest natural substance on Earth?",
+          "option_a": "Iron",
+          "option_b": "Diamond",
+          "option_c": "Corundum",
+          "option_d": "Tungsten",
+          "correct_option": "B",
+          "explanation": "Diamond is the hardest natural mineral, rated 10 on the Mohs hardness scale.",
+          "order": 23
+        },
+        {
+          "text": "What is the chemical symbol for gold?",
+          "option_a": "Go",
+          "option_b": "Gd",
+          "option_c": "Au",
+          "option_d": "Ag",
+          "correct_option": "C",
+          "explanation": "Au comes from Latin 'aurum', meaning gold.",
+          "order": 24
+        },
+        {
+          "text": "What is a group of lions called?",
+          "option_a": "A pride",
+          "option_b": "A pack",
+          "option_c": "A coalition",
+          "option_d": "A troop",
+          "correct_option": "A",
+          "explanation": "A group of lions is called a pride, typically consisting of related females and their offspring.",
+          "order": 25
+        },
+        {
+          "text": "Who wrote 1984?",
+          "option_a": "Aldous Huxley",
+          "option_b": "Ray Bradbury",
+          "option_c": "George Orwell",
+          "option_d": "H.G. Wells",
+          "correct_option": "C",
+          "explanation": "George Orwell published 'Nineteen Eighty-Four' in 1949, depicting totalitarian surveillance.",
+          "order": 26
+        },
+        {
+          "text": "What gas do plants absorb from the atmosphere?",
+          "option_a": "Oxygen",
+          "option_b": "Nitrogen",
+          "option_c": "Carbon dioxide",
+          "option_d": "Argon",
+          "correct_option": "C",
+          "explanation": "Plants absorb CO2 for photosynthesis, releasing oxygen as a byproduct.",
+          "order": 27
+        },
+        {
+          "text": "What is the capital of Iceland?",
+          "option_a": "Oslo",
+          "option_b": "Helsinki",
+          "option_c": "Reykjavik",
+          "option_d": "Stockholm",
+          "correct_option": "C",
+          "explanation": "Reykjavik is Iceland's capital and northernmost capital of a sovereign state.",
+          "order": 28
+        },
+        {
+          "text": "Who directed Jurassic Park?",
+          "option_a": "James Cameron",
+          "option_b": "Steven Spielberg",
+          "option_c": "George Lucas",
+          "option_d": "Ridley Scott",
+          "correct_option": "B",
+          "explanation": "Steven Spielberg directed Jurassic Park (1993), revolutionizing CGI effects.",
+          "order": 29
+        },
+        {
+          "text": "What ancient civilization built Machu Picchu?",
+          "option_a": "Aztec",
+          "option_b": "Mayan",
+          "option_c": "Inca",
+          "option_d": "Olmec",
+          "correct_option": "C",
+          "explanation": "The Inca civilization built Machu Picchu around 1450 CE as an estate for Emperor Pachacuti.",
+          "order": 30
+        }
+      ]
+    },
+    {
+      "title": "400 Level Qualifier - Expert Challenge",
+      "quiz_type": "qualifier",
+      "round_type": "general",
+      "level": "400",
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 10,
+      "total_questions": 30,
+      "points_correct": 10,
+      "points_wrong": 5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 5,
+      "questions": [
+        {
+          "text": "Who was known as the 'Maid of Orléans'?",
+          "option_a": "Eleanor of Aquitaine",
+          "option_b": "Marie Antoinette",
+          "option_c": "Joan of Arc",
+          "option_d": "Catherine the Great",
+          "correct_option": "C",
+          "explanation": "Joan of Arc led French forces during the Hundred Years' War and was canonized as a saint.",
+          "order": 1
+        },
+        {
+          "text": "Mount Kilimanjaro is located in which country?",
+          "option_a": "Kenya",
+          "option_b": "Uganda",
+          "option_c": "Tanzania",
+          "option_d": "Ethiopia",
+          "correct_option": "C",
+          "explanation": "Mount Kilimanjaro is in Tanzania, near the Kenyan border, and is Africa's highest mountain.",
+          "order": 2
+        },
+        {
+          "text": "What is the largest mammal on Earth?",
+          "option_a": "Elephant",
+          "option_b": "Blue whale",
+          "option_c": "Fin whale",
+          "option_d": "Sperm whale",
+          "correct_option": "B",
+          "explanation": "The blue whale is the largest animal ever known to exist, reaching up to 100 feet and 200 tons.",
+          "order": 3
+        },
+        {
+          "text": "In The Matrix, does Neo take the blue pill or the red pill?",
+          "option_a": "Blue pill",
+          "option_b": "Red pill",
+          "option_c": "Green pill",
+          "option_d": "Yellow pill",
+          "correct_option": "B",
+          "explanation": "Neo takes the red pill to learn the truth about the Matrix.",
+          "order": 4
+        },
+        {
+          "text": "Which artist is famous for painting water lilies?",
+          "option_a": "Vincent van Gogh",
+          "option_b": "Claude Monet",
+          "option_c": "Pierre-Auguste Renoir",
+          "option_d": "Edgar Degas",
+          "correct_option": "B",
+          "explanation": "Monet painted approximately 250 water lily paintings at his garden in Giverny.",
+          "order": 5
+        },
+        {
+          "text": "What is the tallest building in the world as of 2025?",
+          "option_a": "Shanghai Tower",
+          "option_b": "Abraj Al Bait",
+          "option_c": "Burj Khalifa",
+          "option_d": "One World Trade Center",
+          "correct_option": "C",
+          "explanation": "Burj Khalifa in Dubai is 828 meters (2,717 ft) tall, the world's tallest building.",
+          "order": 6
+        },
+        {
+          "text": "Who sculpted David?",
+          "option_a": "Donatello",
+          "option_b": "Michelangelo",
+          "option_c": "Bernini",
+          "option_d": "Rodin",
+          "correct_option": "B",
+          "explanation": "Michelangelo carved David from 1501-1504, a masterpiece of Renaissance sculpture.",
+          "order": 7
+        },
+        {
+          "text": "Which spice is derived from dried crocus flowers?",
+          "option_a": "Saffron",
+          "option_b": "Turmeric",
+          "option_c": "Paprika",
+          "option_d": "Cumin",
+          "correct_option": "A",
+          "explanation": "Saffron comes from Crocus sativus flowers, requiring 75,000 flowers for 1 pound of spice.",
+          "order": 8
+        },
+        {
+          "text": "Which Shakespeare play features the character Iago?",
+          "option_a": "Hamlet",
+          "option_b": "Macbeth",
+          "option_c": "Othello",
+          "option_d": "King Lear",
+          "correct_option": "C",
+          "explanation": "Iago is the villainous antagonist in Shakespeare's tragedy 'Othello'.",
+          "order": 9
+        },
+        {
+          "text": "How many legs does a lobster have?",
+          "option_a": "8",
+          "option_b": "10",
+          "option_c": "12",
+          "option_d": "14",
+          "correct_option": "B",
+          "explanation": "Lobsters have 10 legs, including four pairs of walking legs and one pair of claws.",
+          "order": 10
+        },
+        {
+          "text": "Which planet is known as the red planet?",
+          "option_a": "Jupiter",
+          "option_b": "Saturn",
+          "option_c": "Mars",
+          "option_d": "Mercury",
+          "correct_option": "C",
+          "explanation": "Mars appears red due to iron oxide (rust) on its surface.",
+          "order": 11
+        },
+        {
+          "text": "What is the capital city of Canada?",
+          "option_a": "Toronto",
+          "option_b": "Vancouver",
+          "option_c": "Montreal",
+          "option_d": "Ottawa",
+          "correct_option": "D",
+          "explanation": "Ottawa is Canada's capital, chosen by Queen Victoria in 1857.",
+          "order": 12
+        },
+        {
+          "text": "Who discovered penicillin?",
+          "option_a": "Louis Pasteur",
+          "option_b": "Alexander Fleming",
+          "option_c": "Robert Koch",
+          "option_d": "Joseph Lister",
+          "correct_option": "B",
+          "explanation": "Alexander Fleming discovered penicillin in 1928, revolutionizing medicine with antibiotics.",
+          "order": 13
+        },
+        {
+          "text": "Who sings 'Pocketful of Sunshine'?",
+          "option_a": "Natasha Bedingfield",
+          "option_b": "Pink",
+          "option_c": "Katy Perry",
+          "option_d": "Kelly Clarkson",
+          "correct_option": "A",
+          "explanation": "Natasha Bedingfield released 'Pocketful of Sunshine' in 2007 as the title track of her album.",
+          "order": 14
+        },
+        {
+          "text": "What is the main ingredient in baba ghanoush?",
+          "option_a": "Eggplant",
+          "option_b": "Chickpeas",
+          "option_c": "Zucchini",
+          "option_d": "Bell peppers",
+          "correct_option": "A",
+          "explanation": "Baba ghanoush is made from mashed roasted eggplant, tahini, olive oil, and lemon juice.",
+          "order": 15
+        },
+        {
+          "text": "Which country hosted the 2021 Summer Olympics?",
+          "option_a": "Brazil",
+          "option_b": "Japan",
+          "option_c": "United Kingdom",
+          "option_d": "Australia",
+          "correct_option": "B",
+          "explanation": "The 2020 Olympics were postponed to 2021 due to COVID-19, still held in Tokyo, Japan.",
+          "order": 16
+        },
+        {
+          "text": "What is the world's smallest continent?",
+          "option_a": "Europe",
+          "option_b": "Australia",
+          "option_c": "Antarctica",
+          "option_d": "South America",
+          "correct_option": "B",
+          "explanation": "Australia is the smallest continent (including Oceania), covering 8.5 million square kilometers.",
+          "order": 17
+        },
+        {
+          "text": "Who is Colin Jost's famous wife?",
+          "option_a": "Jennifer Lawrence",
+          "option_b": "Anne Hathaway",
+          "option_c": "Scarlett Johansson",
+          "option_d": "Emma Stone",
+          "correct_option": "C",
+          "explanation": "Colin Jost married Scarlett Johansson in October 2020 in a private ceremony.",
+          "order": 18
+        },
+        {
+          "text": "Who voiced Sulley in Monsters, Inc.?",
+          "option_a": "Billy Crystal",
+          "option_b": "John Goodman",
+          "option_c": "Mike Myers",
+          "option_d": "Eddie Murphy",
+          "correct_option": "B",
+          "explanation": "John Goodman voiced James P. 'Sulley' Sullivan in Monsters, Inc. (2001).",
+          "order": 19
+        },
+        {
+          "text": "In Toy Story, what is Woody's last name?",
+          "option_a": "Sheriff",
+          "option_b": "Pride",
+          "option_c": "Roundup",
+          "option_d": "Lawson",
+          "correct_option": "B",
+          "explanation": "Woody's full name is Woody Pride, sheriff of Woody's Roundup.",
+          "order": 20
+        },
+        {
+          "text": "Who wrote Pride and Prejudice?",
+          "option_a": "Emily Brontë",
+          "option_b": "Charlotte Brontë",
+          "option_c": "Jane Austen",
+          "option_d": "George Eliot",
+          "correct_option": "C",
+          "explanation": "Jane Austen published Pride and Prejudice in 1813, her most famous novel.",
+          "order": 21
+        },
+        {
+          "text": "Which city is known as The Big Apple?",
+          "option_a": "Los Angeles",
+          "option_b": "Chicago",
+          "option_c": "New York City",
+          "option_d": "Boston",
+          "correct_option": "C",
+          "explanation": "New York City was nicknamed 'The Big Apple' in jazz musicians' slang in the 1920s.",
+          "order": 22
+        },
+        {
+          "text": "Which city is known as The City of Lights?",
+          "option_a": "Rome",
+          "option_b": "Paris",
+          "option_c": "London",
+          "option_d": "Prague",
+          "correct_option": "B",
+          "explanation": "Paris was one of the first cities to have street lighting, earning this nickname.",
+          "order": 23
+        },
+        {
+          "text": "Which city is known as The Emerald City?",
+          "option_a": "Portland",
+          "option_b": "Seattle",
+          "option_c": "Vancouver",
+          "option_d": "San Francisco",
+          "correct_option": "B",
+          "explanation": "Seattle is called the Emerald City for its lush evergreen forests.",
+          "order": 24
+        },
+        {
+          "text": "Who was the first person on the moon?",
+          "option_a": "Buzz Aldrin",
+          "option_b": "Neil Armstrong",
+          "option_c": "Michael Collins",
+          "option_d": "Yuri Gagarin",
+          "correct_option": "B",
+          "explanation": "Neil Armstrong stepped onto the moon on July 20, 1969, saying 'One small step for man...'",
+          "order": 25
+        },
+        {
+          "text": "What is the human body's largest organ?",
+          "option_a": "Liver",
+          "option_b": "Heart",
+          "option_c": "Lungs",
+          "option_d": "Skin",
+          "correct_option": "D",
+          "explanation": "Skin is the largest organ, covering about 20 square feet and comprising 15% of body weight.",
+          "order": 26
+        },
+        {
+          "text": "What year did the first iPhone release?",
+          "option_a": "2006",
+          "option_b": "2007",
+          "option_c": "2008",
+          "option_d": "2009",
+          "correct_option": "B",
+          "explanation": "The first iPhone was announced by Steve Jobs on January 9, 2007, released later that year.",
+          "order": 27
+        },
+        {
+          "text": "Which ocean lies between Africa and Australia?",
+          "option_a": "Atlantic Ocean",
+          "option_b": "Pacific Ocean",
+          "option_c": "Southern Ocean",
+          "option_d": "Indian Ocean",
+          "correct_option": "D",
+          "explanation": "The Indian Ocean separates Africa and Australia, covering about 70 million square kilometers.",
+          "order": 28
+        },
+        {
+          "text": "Who won the 2023 Women's World Cup?",
+          "option_a": "England",
+          "option_b": "Spain",
+          "option_c": "USA",
+          "option_d": "Germany",
+          "correct_option": "B",
+          "explanation": "Spain defeated England 1-0 to win their first Women's World Cup in 2023.",
+          "order": 29
+        },
+        {
+          "text": "What is the national flower of Japan?",
+          "option_a": "Chrysanthemum",
+          "option_b": "Cherry blossom",
+          "option_c": "Lotus",
+          "option_d": "Orchid",
+          "correct_option": "B",
+          "explanation": "Cherry blossom (sakura) is Japan's national flower, symbolizing renewal and transience.",
+          "order": 30
+        }
+      ]
+    }
+  ]
+}

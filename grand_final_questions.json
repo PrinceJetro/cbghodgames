@@ -1,0 +1,321 @@
+{
+  "quizzes": [
+    {
+      "title": "Grand Finals - Champions Arena",
+      "quiz_type": "final",
+      "round_type": "final_high",
+      "level": null,
+      "date": null,
+      "day_label": "",
+      "is_active": true,
+      "time_limit": 45,
+      "total_questions": 30,
+      "points_correct": 20,
+      "points_wrong": -5,
+      "speed_bonus_enabled": true,
+      "speed_bonus_max": 10,
+      "questions": [
+        {
+          "text": "Which powerful Mongol ruler conquered a vast empire stretching from Asia to Europe?",
+          "option_a": "Kublai Khan",
+          "option_b": "Genghis Khan",
+          "option_c": "Attila the Hun",
+          "option_d": "Tamerlane",
+          "correct_option": "B",
+          "explanation": "Genghis Khan founded the Mongol Empire, the largest contiguous land empire in history, spanning from Asia to Eastern Europe.",
+          "order": 1
+        },
+        {
+          "text": "In what decade was the internet created?",
+          "option_a": "1950s",
+          "option_b": "1960s",
+          "option_c": "1970s",
+          "option_d": "1980s",
+          "correct_option": "B",
+          "explanation": "The internet's precursor, ARPANET, was developed in the 1960s by the U.S. Department of Defense.",
+          "order": 2
+        },
+        {
+          "text": "What was the name of the first computer virus?",
+          "option_a": "Melissa",
+          "option_b": "ILOVEYOU",
+          "option_c": "Creeper",
+          "option_d": "Brain",
+          "correct_option": "C",
+          "explanation": "Creeper was created in 1971 as an experiment, displaying 'I'm the creeper, catch me if you can!'",
+          "order": 3
+        },
+        {
+          "text": "Who was the world's highest-paid athlete in 2023?",
+          "option_a": "Lionel Messi",
+          "option_b": "LeBron James",
+          "option_c": "Cristiano Ronaldo",
+          "option_d": "Kylian Mbappé",
+          "correct_option": "C",
+          "explanation": "Cristiano Ronaldo earned $260 million in 2023, making him the highest-paid athlete globally.",
+          "order": 4
+        },
+        {
+          "text": "Who wrote The Odyssey?",
+          "option_a": "Virgil",
+          "option_b": "Sophocles",
+          "option_c": "Homer",
+          "option_d": "Euripides",
+          "correct_option": "C",
+          "explanation": "Homer, the ancient Greek poet, is credited with writing both The Iliad and The Odyssey.",
+          "order": 5
+        },
+        {
+          "text": "What country is known as the Land of Fire and Ice?",
+          "option_a": "Norway",
+          "option_b": "Greenland",
+          "option_c": "Iceland",
+          "option_d": "Finland",
+          "correct_option": "C",
+          "explanation": "Iceland is called Land of Fire and Ice due to its volcanic activity and glaciers.",
+          "order": 6
+        },
+        {
+          "text": "What is the main language spoken in Brazil?",
+          "option_a": "Spanish",
+          "option_b": "French",
+          "option_c": "Portuguese",
+          "option_d": "Italian",
+          "correct_option": "C",
+          "explanation": "Portuguese is the official language of Brazil, making it the largest Portuguese-speaking country in the world.",
+          "order": 7
+        },
+        {
+          "text": "Who painted Girl with a Pearl Earring?",
+          "option_a": "Rembrandt",
+          "option_b": "Johannes Vermeer",
+          "option_c": "Francisco Goya",
+          "option_d": "Jan van Eyck",
+          "correct_option": "B",
+          "explanation": "Johannes Vermeer painted 'Girl with a Pearl Earring' around 1665, often called the 'Mona Lisa of the North'.",
+          "order": 8
+        },
+        {
+          "text": "What year did the Berlin Wall fall?",
+          "option_a": "1987",
+          "option_b": "1988",
+          "option_c": "1989",
+          "option_d": "1990",
+          "correct_option": "C",
+          "explanation": "The Berlin Wall fell on November 9, 1989, leading to German reunification.",
+          "order": 9
+        },
+        {
+          "text": "Who is the rival boy band in KPop Demon Hunters?",
+          "option_a": "The Shadow Boys",
+          "option_b": "The Saja Boys",
+          "option_c": "The Dark Knights",
+          "option_d": "The Phantom Crew",
+          "correct_option": "B",
+          "explanation": "The Saja Boys are the rival group in the KPop webtoon 'Demon Hunters'.",
+          "order": 10
+        },
+        {
+          "text": "What is the freezing point of water in Celsius?",
+          "option_a": "-1°",
+          "option_b": "0°",
+          "option_c": "1°",
+          "option_d": "32°",
+          "correct_option": "B",
+          "explanation": "Water freezes at 0° Celsius (32° Fahrenheit) at standard atmospheric pressure.",
+          "order": 11
+        },
+        {
+          "text": "Who is the Greek god of the sea?",
+          "option_a": "Zeus",
+          "option_b": "Ares",
+          "option_c": "Poseidon",
+          "option_d": "Hades",
+          "correct_option": "C",
+          "explanation": "Poseidon is the Greek god of the sea, earthquakes, and horses, brother of Zeus and Hades.",
+          "order": 12
+        },
+        {
+          "text": "What is the square root of 64?",
+          "option_a": "6",
+          "option_b": "7",
+          "option_c": "8",
+          "option_d": "9",
+          "correct_option": "C",
+          "explanation": "The square root of 64 is 8 because 8 × 8 = 64.",
+          "order": 13
+        },
+        {
+          "text": "What continent is the Sahara Desert on?",
+          "option_a": "Asia",
+          "option_b": "Australia",
+          "option_c": "South America",
+          "option_d": "Africa",
+          "correct_option": "D",
+          "explanation": "The Sahara Desert covers most of North Africa and is the largest hot desert in the world.",
+          "order": 14
+        },
+        {
+          "text": "What is Selena Gomez's husband's name?",
+          "option_a": "Justin Bieber",
+          "option_b": "The Weeknd",
+          "option_c": "Benny Blanco",
+          "option_d": "Taylor Lautner",
+          "correct_option": "C",
+          "explanation": "Selena Gomez is in a relationship with music producer Benny Blanco (engaged as of 2024-2025).",
+          "order": 15
+        },
+        {
+          "text": "What's the longest bone in the human body?",
+          "option_a": "Tibia",
+          "option_b": "Fibula",
+          "option_c": "Femur",
+          "option_d": "Humerus",
+          "correct_option": "C",
+          "explanation": "The femur (thigh bone) is the longest and strongest bone in the human body.",
+          "order": 16
+        },
+        {
+          "text": "What is the capital of India?",
+          "option_a": "Mumbai",
+          "option_b": "New Delhi",
+          "option_c": "Kolkata",
+          "option_d": "Bangalore",
+          "correct_option": "B",
+          "explanation": "New Delhi is the capital of India, located within the larger Delhi metropolitan area.",
+          "order": 17
+        },
+        {
+          "text": "What are the three primary colors?",
+          "option_a": "Red, green, blue",
+          "option_b": "Red, yellow, blue",
+          "option_c": "Red, yellow, green",
+          "option_d": "Blue, yellow, green",
+          "correct_option": "B",
+          "explanation": "The primary colors in traditional color theory are red, yellow, and blue.",
+          "order": 18
+        },
+        {
+          "text": "What is the largest island in the world?",
+          "option_a": "Australia",
+          "option_b": "Greenland",
+          "option_c": "New Guinea",
+          "option_d": "Borneo",
+          "correct_option": "B",
+          "explanation": "Greenland is the world's largest island, covering 2.16 million square kilometers.",
+          "order": 19
+        },
+        {
+          "text": "Who is known as the King of Pop?",
+          "option_a": "Elvis Presley",
+          "option_b": "Prince",
+          "option_c": "Michael Jackson",
+          "option_d": "Freddie Mercury",
+          "correct_option": "C",
+          "explanation": "Michael Jackson is widely known as the King of Pop, with iconic albums like 'Thriller'.",
+          "order": 20
+        },
+        {
+          "text": "What is the capital city of Spain?",
+          "option_a": "Barcelona",
+          "option_b": "Seville",
+          "option_c": "Valencia",
+          "option_d": "Madrid",
+          "correct_option": "D",
+          "explanation": "Madrid is the capital and largest city of Spain, located in the center of the country.",
+          "order": 21
+        },
+        {
+          "text": "Who is known as the Queen of Soul?",
+          "option_a": "Whitney Houston",
+          "option_b": "Aretha Franklin",
+          "option_c": "Tina Turner",
+          "option_d": "Diana Ross",
+          "correct_option": "B",
+          "explanation": "Aretha Franklin, known for 'Respect', is called the Queen of Soul.",
+          "order": 22
+        },
+        {
+          "text": "What animal has the longest lifespan?",
+          "option_a": "Bowhead whale",
+          "option_b": "Galapagos tortoise",
+          "option_c": "The glass sponge",
+          "option_d": "Greenland shark",
+          "correct_option": "C",
+          "explanation": "Glass sponges can live for over 10,000 years, the longest lifespan of any animal.",
+          "order": 23
+        },
+        {
+          "text": "What is the loudest animal on Earth?",
+          "option_a": "Blue whale",
+          "option_b": "Sperm whale",
+          "option_c": "Howler monkey",
+          "option_d": "Tiger pistol shrimp",
+          "correct_option": "B",
+          "explanation": "Sperm whale clicks reach 230 decibels, the loudest sound produced by any animal.",
+          "order": 24
+        },
+        {
+          "text": "What animal has the largest brain relative to body size?",
+          "option_a": "Human",
+          "option_b": "Dolphin",
+          "option_c": "Elephant",
+          "option_d": "Chimpanzee",
+          "correct_option": "B",
+          "explanation": "Dolphins have the highest brain-to-body ratio after humans, with complex intelligence and problem-solving abilities.",
+          "order": 25
+        },
+        {
+          "text": "What animal had the most powerful bite in the world?",
+          "option_a": "Great white shark",
+          "option_b": "Nile crocodile",
+          "option_c": "Hippopotamus",
+          "option_d": "Saltwater crocodile",
+          "correct_option": "B",
+          "explanation": "The Nile crocodile has a bite force of up to 5,000 PSI, the strongest measured in any animal.",
+          "order": 26
+        },
+        {
+          "text": "How many hearts does an octopus have?",
+          "option_a": "One",
+          "option_b": "Two",
+          "option_c": "Three",
+          "option_d": "Four",
+          "correct_option": "C",
+          "explanation": "Octopuses have three hearts: two pump blood to the gills, one pumps to the rest of the body.",
+          "order": 27
+        },
+        {
+          "text": "What is a group of pandas known as?",
+          "option_a": "A pack",
+          "option_b": "An embarrassment",
+          "option_c": "A bamboo",
+          "option_d": "A troop",
+          "correct_option": "B",
+          "explanation": "A group of pandas is called an 'embarrassment' due to their awkward, clumsy movements.",
+          "order": 28
+        },
+        {
+          "text": "What animal has the longest tongue?",
+          "option_a": "Anteater",
+          "option_b": "Chameleon",
+          "option_c": "Giraffe",
+          "option_d": "Woodpecker",
+          "correct_option": "C",
+          "explanation": "Giraffes have 18-20 inch (45-50 cm) tongues, the longest of any land animal.",
+          "order": 29
+        },
+        {
+          "text": "Which ancient Chinese dynasty is often considered the 'golden age' of Chinese civilization?",
+          "option_a": "Qin Dynasty",
+          "option_b": "Tang Dynasty",
+          "option_c": "Han Dynasty",
+          "option_d": "Song Dynasty",
+          "correct_option": "C",
+          "explanation": "The Han Dynasty (206 BCE-220 CE) is considered China's golden age of cultural and technological advancement.",
+          "order": 30
+        }
+      ]
+    }
+  ]
+}
